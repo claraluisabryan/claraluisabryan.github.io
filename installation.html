@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="luisa, internet, portfolio, fun, internet_luisa">
+    <meta name="author" contents="Luisa Bryan">
+    <title> Installation | Luisa </title>
+    <link rel="stylesheet" href="./css/style_installation.css">
+  </head>
+  <body>
+    <section id = "my_work"> <center>Installation</center> </section>
+    <a href="work.html"> <section id = 'back'> back </section> </a>
+    <p id = "about_music"> Click the play/pause buttons and view the pictures to see some installations
+      I have made. <br> I make these projects to combine different processes - programming, animating, and
+      sound synthesis - and be able to physically display them. So far, my method of displaying has been
+      using projectors and laser-cut plexiglass.
+   </p>
+    <section id = "scrim1">
+      <video id="video1" width="700" height = "400">
+      <source src="./uploads/scrim1.mov" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <br>
+      <center> <button class= 'button' onclick="playPause1()"> <b> Play/Pause </b> </button> </center>
+      <script>
+      var myVideo1 = document.getElementById("video1");
+      function playPause1() {
+        if (myVideo1.paused)
+          myVideo1.play();
+        else
+          myVideo1.pause();
+      }
+      </script>
+    </section>
+
+    <section id = "scrim2">
+      <video id="video5" width="540" height = "300">
+      <source src="./uploads/scrim2.mov" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <br>
+      <center> <button class= 'button' onclick="playPause5()"> <b> Play/Pause </b> </button> </center>
+      <script>
+      var myVideo5 = document.getElementById("video5");
+      function playPause5() {
+        if (myVideo5.paused)
+          myVideo5.play();
+        else
+          myVideo5.pause();
+      }
+      </script>
+    </section>
+
+    <section id = "scrim3">
+      <video id="video6" width="540" height = "300">
+      <source src="./uploads/scrim3.mov" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <br>
+      <center> <button class= 'button' onclick="playPause6()"> <b> Play/Pause </b> </button> </center>
+      <script>
+      var myVideo6 = document.getElementById("video6");
+      function playPause6() {
+        if (myVideo6.paused)
+          myVideo6.play();
+        else
+          myVideo6.pause();
+      }
+      </script>
+    </section>
+
+    <section id = "scrim4">
+      <video id="video4" width="520" height = "290">
+      <source src="./uploads/scrim4.mov" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <br>
+      <center> <button class= 'button' onclick="playPause4()"> <b> Play/Pause </b> </button> </center>
+      <script>
+      var myVideo4 = document.getElementById("video4");
+      function playPause4() {
+        if (myVideo4.paused)
+          myVideo4.play();
+        else
+          myVideo4.pause();
+      }
+      </script>
+    </section>
+
+
+  <section id = "scrim_projection_description">
+  This 2D projection mapped onto a laser cut 3D object pushes the boundary
+  of image to object. <br> On the left, the structure is made out of plexi glass
+  and laser cut sticker paper. On the right, the projector shines light onto laser
+  cut scrim. Both objects have the same shapes cut into them. <br> The
+  animated visual being projected was created in After Effects, and loaded
+  onto Processing, so that the speed of playback of the projection corresponded
+  to the volume of our soundscape.
+</section>
+
+<section id = "speculative_TV_vid">
+  <video id="video3" width="900" height = "500">
+  <source src="./uploads/speculative_TV.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <br>
+  <center> <button class= 'button' onclick="playPause3()"> <b> Play/Pause </b> </button> </center>
+  <script>
+  var myVideo3 = document.getElementById("video3");
+  function playPause3() {
+    if (myVideo3.paused)
+      myVideo3.play();
+    else
+      myVideo3.pause();
+  }
+  </script>
+</section>
+
+<!-- <section id = "tv_blue">
+<img src = "./uploads/tv_blue.png" style = "width:380px;height:250px;">
+</section>
+
+<section id = "tv_red">
+<img src = "./uploads/tv_red.png" style = "width:380px;height:250px;">
+</section> -->
+
+<section id = "tv_blank">
+<img src = "./uploads/tv_blank.jpg" style = "width:510;height:350px;">
+</section>
+
+<section id = "patcher">
+<img src = "./uploads/patcher.jpg" style = "width:510;height:350px;">
+</section>
+
+<section id = 'tv_description'>
+  In this visual and auditory project, I experimented with how different programming platforms can
+  interact with each other. <br> I created a Max Patcher that analyzes the red, green, and blue values of
+  the computer's camera input. The viewer interacts with this piece by holding objects up to the camera.
+  <br> I then wrote some code on Processing that analyzes the pitch being produced, and projects a
+  corresponding color onto a hanging sheet of plexiglass.
+  <br> This prompts the viewer to speculate about less efficient and less enjoyable ways television can be consumed.
+</section>
+
+
+
+  </body>
+
+</html>

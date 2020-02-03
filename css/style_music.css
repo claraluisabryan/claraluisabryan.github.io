@@ -1,0 +1,772 @@
+@font-face { font-family: BungeeOutline-Regular;
+			 src: url('./BungeeOutline-Regular.ttf'); }
+@font-face { font-family: BungeeHairline-Regular;
+			 src: url('./BungeeHairline-Regular.ttf'); }
+
+@viewport {
+ width: device-width ;
+ zoom: 1.0 ;
+}
+
+/*Global*/
+.container{
+  width:100%;
+  margin-left:auto;
+	margin-right:auto;
+  overflow:hidden;
+  top:0px;
+}
+.button{
+	cursor: pointer;
+	font-family: BungeeHairline-Regular;
+}
+
+/* home page */
+#canvas_body_div {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  z-index: -2;
+}
+#luisa {
+	margin-top:15%;
+  z-index:1;
+	color:black;
+	text-align: center;
+  position: relative;
+	font-family: BungeeOutline-Regular;
+  font-size:80px;
+}
+
+#new_boxes .left {
+	float:left;
+	max-width:180px;
+	margin-top:8%;
+	margin-left:20%;
+}
+#new_boxes .right {
+	float:right;
+	width:180px;
+	margin: auto;
+	margin-top:8%;
+	margin-right:20%;
+}
+
+#new_boxes .box img{
+	width:150px;
+}
+
+#back{
+	position: absolute;
+	z-index:2;
+	top:0;
+	left:0;
+	font-size:30px;
+	color: black;
+	font-family: BungeeOutline-Regular;
+}
+
+
+/* ABOUT PAGE */
+#canvas_body_div_about {
+  position: absolute;
+  left: 1%;
+  top: 45%;
+  margin: 0;
+  z-index: 2;
+}
+#about {
+	z-index:1;
+	color:black;
+	left:5%;
+	right:5%;
+	text-align: center;
+	position: absolute;
+	font-family: BungeeHairline-Regular;
+	font-size:21px;
+}
+
+#knowledge{
+	position:absolute;
+	top:56%;
+	left:45%;
+	z-index:1;
+	color:black;
+	font-family: BungeeHairline-Regular;
+	font-size:20px;
+}
+
+#research{
+	z-index: 2;
+	position:absolute;
+	float: right;
+	font-size: 20px;
+	left:70%;
+	top:40%;
+	color: black;
+	font-family: BungeeHairline-Regular;
+}
+
+
+#linkdin{
+	z-index: 2;
+	position:absolute;
+	float: right;
+	/* position: static; */
+	font-size: 20px;
+	left:50%;
+	top:40%;
+	color: black;
+	/* margin-top:30%; */
+	font-family: BungeeHairline-Regular;
+}
+
+#contact{
+	z-index: 2;
+	position:absolute;
+	float: right;
+	font-size: 20px;
+	left:42%;
+	top:85%;
+	color: black;
+	font-family: BungeeHairline-Regular;
+}
+
+/* WORK HOME PAGE */
+#my_work{
+	float: center;
+	font-size: 50px;
+	color: black;
+	font-family: BungeeOutline-Regular;
+}
+
+#music{
+	position: absolute;
+	top:40%;
+	right:10%;
+	font-size: 30px;
+	color: black;
+	margin:0;
+	font-family: BungeeOutline-Regular;
+}
+
+#video{
+	position: absolute;
+	top:40%;
+	right:30%;
+	font-size: 30px;
+	color: black;
+	margin:0;
+	font-family: BungeeOutline-Regular;
+}
+
+#digital{
+	position: absolute;
+	top:40%;
+	left:10%;
+	font-size: 30px;
+	color: black;
+	margin:0;
+	font-family: BungeeOutline-Regular;
+}
+#installation{
+	position: absolute;
+	top:40%;
+	left:30%;
+	font-size: 30px;
+	color: black;
+	margin:0;
+	font-family: BungeeOutline-Regular;
+}
+#erase{
+	position: absolute;
+	font-family: BungeeHairline-Regular;
+	bottom:5%;
+	right:5%;
+	font-size:20px;
+}
+
+/*  Music */
+#about_music {
+	z-index:1;
+	color:black;
+	text-align: center;
+	position: relative;
+	/* font-family: Nosifer-Regular; */
+	font-family: BungeeHairline-Regular;
+	font-size:18px;
+}
+#text{
+	text-align: left;
+	z-index: 2;
+	font-family: BungeeHairline-Regular;
+}
+#one_of_many {
+	position: absolute;
+	margin-top: 100px;
+	left:10%;
+	font-family: BungeeHairline-Regular;
+}
+#tiny_shed_8 {
+	position: absolute;
+	margin-top: 100px;
+	right:10%;
+	font-family: BungeeHairline-Regular;
+}
+#tiny_shed_garden {
+	position: absolute;
+	margin-top: 500px;
+	right:10%;
+	font-family: BungeeHairline-Regular;
+}
+#tiny_shed_pennies {
+	position: absolute;
+	margin-top: 500px;
+	left:10%;
+	font-family: BungeeHairline-Regular;
+}
+#haters_get_dumber {
+	position: absolute;
+	margin-top: 850px;
+	left: 10%;
+	font-family: BungeeHairline-Regular;
+}
+
+#blooper {
+	position: absolute;
+	margin-top: 850px;
+	right: 5%;
+	font-family: BungeeHairline-Regular;
+}
+
+#moszkowski {
+	position: absolute;
+	margin-top: 1290px;
+	left: 10%;
+	font-family: BungeeHairline-Regular;
+}
+
+#fantaisie{
+	position: absolute;
+	margin-top: 1290px;
+	right: 10%;
+	font-family: BungeeHairline-Regular;
+}
+
+/* Video */
+/* video {
+	width: 90%;
+	height: auto;
+} */
+#blooper_punk_singers{
+	position: absolute;
+	top:210px;
+	left: 50%;
+	margin-left: -400px;
+	font-family: BungeeHairline-Regular;
+}
+#ocean_acid{
+	position: absolute;
+	top:750px;
+	left: 50%;
+	margin-left: -400px;
+	font-family: BungeeHairline-Regular;
+}
+#powerpoint{
+	position: absolute;
+	top:1350px;
+	left: 50%;
+	margin-left: -400px;
+	font-family: BungeeHairline-Regular;
+}
+#excel{
+	position: absolute;
+	top:1950px;
+	left: 50%;
+	margin-left: -400px;
+	font-family: BungeeHairline-Regular;
+}
+#groupon{
+	position: absolute;
+	top:3150px;
+	left: 50%;
+	margin-left: -400px;
+	font-family: BungeeHairline-Regular;
+}
+#joe_adamik{
+	position: absolute;
+	top:2550px;
+	left: 50%;
+	margin-left: -400px;
+	font-family: BungeeHairline-Regular;
+
+}
+
+/* Installation */
+
+#scrim1{
+	position: absolute;
+	left: 50%;
+	margin-left: -350px;
+	top:200px;
+	font-family: BungeeHairline-Regular;
+}
+#scrim2{
+	position: absolute;
+	left: 5%;
+	top:660px;
+	font-family: BungeeHairline-Regular;
+}
+#scrim3{
+	position: absolute;
+	right: 5%;
+	top:660px;
+	font-family: BungeeHairline-Regular;
+}
+#scrim4{
+	position: absolute;
+	left: 50%;
+	margin-left: -260px;
+	top:1050px;
+	font-family: BungeeHairline-Regular;
+}
+
+#scrim_projection_description{
+	position: absolute;
+	text-align: center;
+	top:1450px;
+	font-family: BungeeHairline-Regular;
+	font-size:20px;
+	left:8%;
+	right:8%;
+}
+
+
+#speculative_TV_vid{
+	position: absolute;
+	left: 50%;
+	margin-left: -450px;
+	top:1750px;
+	font-family: BungeeHairline-Regular;
+}
+
+#tv_blue{
+	position: absolute;
+	left: 3%;
+	top:2650px;
+	font-family: BungeeHairline-Regular;
+}
+#tv_red{
+	position: absolute;
+	right: 3%;
+	top:2650px;
+	font-family: BungeeHairline-Regular;
+}
+#tv_blank{
+	position: absolute;
+	left:5%;
+	/* margin-right:80px; */
+	top:2350px;
+	font-family: BungeeHairline-Regular;
+}
+#patcher{
+	position: absolute;
+	right:5%;
+	/* margin-right:80px; */
+	top:2350px;
+	font-family: BungeeHairline-Regular;
+}
+#tv_description{
+	position: absolute;
+	text-align: center;
+	top:2750px;
+	font-family: BungeeHairline-Regular;
+	font-size:20px;
+	left:8%;
+	right:8%;
+}
+
+/* OLD Boxes */
+#boxes{
+  margin-top:10%;
+}
+
+#boxes .box{
+  float:left;
+  text-align: center;
+	/* align: center; */
+  width:40%;
+  padding:10px;
+  list-style-type: none;
+}
+
+#boxes .box img{
+  width:150px;
+	font-family: Nosifer-Regular;
+
+}
+@media(max-width:768px){
+
+#luisa {
+		margin-top:15%;
+		z-index:1;
+		color:black;
+		text-align: center;
+		position: relative;
+		font-family: BungeeOutline-Regular;
+		font-size:50px;
+	}
+
+#new_boxes .left {
+	margin:auto;
+	margin-top:20%;
+	margin-left:10%;
+}
+#new_boxes .right {
+	margin:auto;
+	margin-top:20%;
+}
+
+#new_boxes .box img{
+	width:130px;
+}
+
+/* ABOUT PAGE */
+#canvas_body_div_about {
+  position: absolute;
+  left: 25%;
+	top: 200%;
+  /* margin: 0; */
+  z-index: 2;
+}
+#about {
+	z-index:1;
+	color:black;
+	left:5%;
+	right:5%;
+	top:100px;
+	text-align: center;
+	position: absolute;
+	font-family: BungeeHairline-Regular;
+	font-size:20px;
+}
+
+#knowledge{
+	position:absolute;
+	top:110%;
+	left:50%;
+	margin-left:10px;
+	z-index:1;
+	color:black;
+	font-family: BungeeHairline-Regular;
+	font-size:20px;
+}
+
+#research{
+	z-index: 2;
+	position:absolute;
+	float: right;
+	font-size: 20px;
+	left:0%;
+	top:120%;
+	color: black;
+	font-family: BungeeHairline-Regular;
+}
+
+
+#linkdin{
+	z-index: 2;
+	position:absolute;
+	float: right;
+	font-size: 20px;
+	left:0%;
+	top:145%;
+	color: black;
+	font-family: BungeeHairline-Regular;
+}
+
+#contact{
+	z-index: 2;
+	position:absolute;
+	float: right;
+	font-size: 18px;
+	left:0%;
+	top:170%;
+	color: black;
+	font-family: BungeeHairline-Regular;
+}
+
+
+/* WORK HOME PAGE */
+#my_work{
+	float: center;
+	font-size: 50px;
+	color: black;
+	font-family: BungeeOutline-Regular;
+}
+
+#music{
+	position: absolute;
+	top:30%;
+	right:5%;
+	font-size: 25px;
+	color: black;
+	font-family: BungeeOutline-Regular;
+}
+
+#video{
+	position: absolute;
+	top:60%;
+	right:5%;
+	font-size: 25px;
+	color: black;
+	font-family: BungeeOutline-Regular;
+}
+
+#installation{
+	position: absolute;
+	top:60%;
+	left:5%;
+	font-size: 25px;
+	color: black;
+	font-family: BungeeOutline-Regular;
+}
+#digital{
+	position: absolute;
+	top:30%;
+	left:5%;
+	font-size: 25px;
+	color: black;
+	font-family: BungeeOutline-Regular;
+}
+
+/*  Music */
+#about_music {
+	z-index:1;
+	color:black;
+	text-align: center;
+	position: relative;
+	/* font-family: Nosifer-Regular; */
+	font-family: BungeeHairline-Regular;
+	font-size:18px;
+}
+#text{
+	text-align: left;
+	z-index: 2;
+	font-family: BungeeHairline-Regular;
+}
+#one_of_many {
+	position: absolute;
+	top: 190px;
+	left:10%;
+	font-family: BungeeHairline-Regular;
+}
+#tiny_shed_8 {
+	position: absolute;
+	top: 550px;
+	left:10%;
+	font-family: BungeeHairline-Regular;
+}
+#tiny_shed_garden {
+	position: absolute;
+	top: 500px;
+	left:10%;
+	z-index:5;
+	font-family: BungeeHairline-Regular;
+}
+#tiny_shed_pennies {
+	position: absolute;
+	top: 840px;
+	left:10%;
+	font-family: BungeeHairline-Regular;
+}
+#haters_get_dumber {
+	position: absolute;
+	top: 820px;
+	left: 10%;
+	font-family: BungeeHairline-Regular;
+}
+
+#blooper {
+	position: absolute;
+	top: 1180px;
+	left: 10%;
+	font-family: BungeeHairline-Regular;
+}
+
+#moszkowski {
+	position: absolute;
+	top: 1230px;
+	left: 10%;
+	font-family: BungeeHairline-Regular;
+}
+
+#fantaisie{
+	position: absolute;
+	top: 1500px;
+	left: 10%;
+	font-family: BungeeHairline-Regular;
+}
+
+/* Video */
+
+#blooper_punk_singers{
+	position: absolute;
+	top:230px;
+	left:450px;
+	font-family: BungeeHairline-Regular;
+}
+
+#ocean_acid{
+	position: absolute;
+	top:650px;
+	left:450px;
+	font-family: BungeeHairline-Regular;
+}
+#powerpoint{
+	position: absolute;
+	top:1070px;
+	left:450px;
+	font-family: BungeeHairline-Regular;
+}
+#excel{
+	position: absolute;
+	top:1490px;
+	left:450px;
+	font-family: BungeeHairline-Regular;
+}
+#groupon{
+	position: absolute;
+	top:1910px;
+	left:450px;
+	font-family: BungeeHairline-Regular;
+}
+#joe_adamik{
+	position: absolute;
+	top:2330px;
+	left:450px;
+	font-family: BungeeHairline-Regular;
+
+}
+
+/* Installation */
+
+#scrim1{
+	position: absolute;
+	left: 50%;
+	margin-left: -350px;
+	top:200px;
+	font-family: BungeeHairline-Regular;
+}
+#scrim2{
+	position: absolute;
+	left: 5%;
+	top:660px;
+	font-family: BungeeHairline-Regular;
+}
+#scrim3{
+	position: absolute;
+	right: 5%;
+	top:660px;
+	font-family: BungeeHairline-Regular;
+}
+#scrim4{
+	position: absolute;
+	left: 50%;
+	margin-left: -260px;
+	top:1050px;
+	font-family: BungeeHairline-Regular;
+}
+
+#scrim_projection_description{
+	position: absolute;
+	text-align: center;
+	top:1450px;
+	font-family: BungeeHairline-Regular;
+	font-size:20px;
+	left:8%;
+	right:8%;
+}
+
+
+#speculative_TV_vid{
+	position: absolute;
+	left: 50%;
+	margin-left: -450px;
+	top:1750px;
+	font-family: BungeeHairline-Regular;
+}
+
+#tv_blue{
+	position: absolute;
+	left: 3%;
+	top:2650px;
+	font-family: BungeeHairline-Regular;
+}
+#tv_red{
+	position: absolute;
+	right: 3%;
+	top:2650px;
+	font-family: BungeeHairline-Regular;
+}
+#tv_blank{
+	position: absolute;
+	left:5%;
+	/* margin-right:80px; */
+	top:2350px;
+	font-family: BungeeHairline-Regular;
+}
+#patcher{
+	position: absolute;
+	right:5%;
+	/* margin-right:80px; */
+	top:2350px;
+	font-family: BungeeHairline-Regular;
+}
+#tv_description{
+	position: absolute;
+	text-align: center;
+	top:2750px;
+	font-family: BungeeHairline-Regular;
+	font-size:20px;
+	left:8%;
+	right:8%;
+}
+}
+
+/*Media Queries */
+/* @media(max-width: 768px){
+  header #branding,
+  header nav,
+  header nav li,
+  #newsletter h1,
+  #newsletter form,
+  #boxes .box,
+  article#main-col,
+  aside#sidebar{
+    float:none;
+    text-align: center;
+    width:100%;
+  } */
+
+
+  /* header{
+    padding-bottom:20px;
+  } */
+  /* #showcase h1{
+    margin-top:40px;
+  }
+  #newsletter button{
+    display:block;
+    width:100%;
+  } */
+  /* #newsletter form input[type="email"]{
+    display:block;
+    width:100%;
+    margin-bottom:5px;
+  } */
+}
