@@ -10,6 +10,7 @@ void setup() {
   for (int i = 0; i < numBalls; i++) {
     balls[i] = new Ball(random(width), random(height), random(0, 255), i, balls, random(100,255), random(5, 140));
   }
+  frameRate(20);
 }
 
 void draw() {
@@ -109,7 +110,7 @@ class Ball {
     fill(r, color1, color2, a);
     distance = abs(width/2-mouseX);
     // rect(x+speedx*.4, y-speedy*.4, diameter*.4, diameter*.4);
-    rect(x, y, diameter*.4, diameter*.4);
+    rect(x, y, diameter*(width/2500), diameter*(height/2500));
     // rect(x%pmouseX*2, y%pmouseY, diameter*.4, diameter*.4);
     // rect(mouseX/x, mouseY/y, diameter*.4, diameter*.4);
     fill(r, color1, color2, a*.8);
