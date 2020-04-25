@@ -107,6 +107,7 @@ class Ball {
     int color2 = map(mouseY, 0, height, 0, 255);
     fill(0);
     strokeWeight(.7);
+    // noStroke();
     fill(r, color1, color2, a);
     distance = abs(width/2-mouseX);
     // rect(x+speedx*.4, y-speedy*.4, diameter*.4, diameter*.4);
