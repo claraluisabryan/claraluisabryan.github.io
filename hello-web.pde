@@ -1,4 +1,4 @@
-int numBalls = 15;
+int numBalls = 12;
 float spring = 0.08;
 float gravity = -.02;
 float friction = -0.9;
@@ -114,8 +114,8 @@ class Ball {
     rect(x, y, diameter*(width/2500), diameter*(height/2500));
     // rect(x%pmouseX*2, y%pmouseY, diameter*.4, diameter*.4);
     // rect(mouseX/x, mouseY/y, diameter*.4, diameter*.4);
-    fill(r, color1, color2, a*.8);
-    arc(x, y, diameter*.1*r, diameter, radians(20*.001*-mouseY), radians(20*.0009*mouseY));
+    // fill(r, color1, color2, a*.8);
+    // arc(x, y, diameter*.1*r, diameter, radians(20*.001*-mouseY), radians(20*.0009*mouseY));
   }
 }
 //bottom is PI/2
