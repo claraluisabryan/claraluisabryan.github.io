@@ -595,10 +595,11 @@
 #about_title {
 	position: absolute;
 	top: 0px;
-    left: 50%;
+	left: 50%;
+	max-width: 100%;
     transform: translate(-50%, 0);
 	font-family: BungeeOutline-Regular;
-	font-size: 40px;
+	font-size: 35px;
 }
 
 #pic {
@@ -687,7 +688,7 @@
 	position:absolute;
 	font-size: 15px;
 	right:5px;
-	bottom:-1000px;
+	bottom:-1300px;
 	color: black;
 	font-family: BungeeHairline-Regular;
 }
