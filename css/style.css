@@ -590,29 +590,29 @@
 		left: 50%;
 		transform: translate(-50%, 0);
 		font-family: BungeeOutline-Regular;
-		font-size: 50px;
+		font-size: 30px;
 		color: black;
 	}
 	
 	#index-about{
 		position: absolute;
-		top: 480px;
-		left: 50%;
-		transform: translate(-50%, 0);
+		top: 400px;
+		left: 5%;
+		/* transform: translate(-50%, 0); */
 		font-family: BungeeOutline-Regular;
 		text-align: center;
-		font-size: 30px;
+		font-size: 20px;
 		color: black;
 	}
 	
 	#index-projects{
 		position: absolute;
-		top: 350px;
-		left: 50%;
-		transform: translate(-50%, 0);
+		top: 400px;
+		right: 5%;
+		/* transform: translate(-50%, 0); */
 		font-family: BungeeOutline-Regular;
 		text-align: center;
-		font-size: 30px;
+		font-size: 20px;
 		color: black;
 	}
 
