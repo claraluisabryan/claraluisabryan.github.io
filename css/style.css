@@ -34,13 +34,31 @@
 }
 
 #luisa {
-	margin-top:15%;
-  z-index:1;
-	color:black;
-	text-align: center;
-  position: relative;
+	position: absolute;
+	top: 200px;
+    left: 50%;
+    transform: translate(-50%, 0);
 	font-family: BungeeOutline-Regular;
-  font-size:80px;
+	font-size: 60px;
+	color: black;
+}
+
+#index-about{
+	position: absolute;
+	font-family: BungeeOutline-Regular;
+	font-size:40px;
+	top:400px;
+	left:20%;
+	text-decoration: none;
+}
+
+#index-projects{
+	position: absolute;
+	font-family: BungeeOutline-Regular;
+	font-size:40px;
+	top:400px;
+	right:20%;
+	text-decoration: none;
 }
 
 #new_boxes .left {
@@ -566,14 +584,32 @@
 }
 @media(max-width:768px){
 
-#luisa {
-		margin-top:15%;
-		z-index:1;
-		color:black;
-		text-align: center;
-		position: relative;
+	#luisa {
+		position: absolute;
+		top: 100px;
+		left: 50%;
+		transform: translate(-50%, 0);
 		font-family: BungeeOutline-Regular;
-		font-size:50px;
+		font-size: 40px;
+		color: black;
+	}
+	
+	#index-about{
+		position: absolute;
+		font-family: BungeeOutline-Regular;
+		font-size:40px;
+		top:300px;
+		left:10%;
+		text-decoration: none;
+	}
+	
+	#index-projects{
+		position: absolute;
+		font-family: BungeeOutline-Regular;
+		font-size:40px;
+		top:300px;
+		right:10%;
+		text-decoration: none;
 	}
 
 #new_boxes .left {

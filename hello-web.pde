@@ -111,6 +111,7 @@ class Ball {
     fill(r, color1, color2, a);
     distance = abs(width/2-mouseX);
     // rect(x+speedx*.4, y-speedy*.4, diameter*.4, diameter*.4);
+    noStroke();
     rect(x, y, diameter*(width/2500), diameter*(height/2500));
     // rect(x%pmouseX*2, y%pmouseY, diameter*.4, diameter*.4);
     // rect(mouseX/x, mouseY/y, diameter*.4, diameter*.4);
