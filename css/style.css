@@ -590,18 +590,18 @@
 		left: 50%;
 		transform: translate(-50%, 0);
 		font-family: BungeeOutline-Regular;
-		font-size: 45px;
+		font-size: 50px;
 		color: black;
 	}
 	
 	#index-about{
 		position: absolute;
-		top: 570px;
+		top: 480px;
 		left: 50%;
 		transform: translate(-50%, 0);
 		font-family: BungeeOutline-Regular;
 		text-align: center;
-		font-size: 25px;
+		font-size: 30px;
 		color: black;
 	}
 	
@@ -612,7 +612,7 @@
 		transform: translate(-50%, 0);
 		font-family: BungeeOutline-Regular;
 		text-align: center;
-		font-size: 25px;
+		font-size: 30px;
 		color: black;
 	}
 
