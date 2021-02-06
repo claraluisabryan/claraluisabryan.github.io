@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="/rosefavicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Luisa Bryan</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- <script src="../p5.js"></script> -->
+    <!-- <script src="../addons/p5.sound.min.js"></script> -->
+    <!-- <script src="../sketch.js"></script> -->
+</head>
+<body class = "bg-background1">
+
+<ul class = "z-10 top-0 fixed font-sans font-light right-10 top-4 text-xl text-text1 space-x-8">
+        <li class="inline-block bg-background1 rounded-md cursor-pointer tracking-widest hover:text-hovercolor"> <a href="about.html"> ABOUT </a> </li>
+        <li class="inline-block bg-background1 rounded-md cursor-pointer tracking-widest hover:text-hovercolor"> <a href="work.html"> WORK </a> </li>
+        <li class="inline-block bg-background1 rounded-md cursor-pointer tracking-widest hover:text-hovercolor"> <a href="contact.html"> CONTACT </a> </li>
+    </ul>
+    <ul class = "z-10 pt-2 top-0 bg-background1 rounded-md fixed left-10 top-4 tracking-widest font-header font-bold text-2xl text-text1 hover:text-hovercolor space-x-6">
+            <li class="inline-block cursor-pointer"> <a href="index.html"> LUISA BRYAN </a>  </li>
+</ul>
+
+    <div class = "pt-20 pb-20 text-m flex-col space-y-6 w-3/5 mx-auto text-text1 tracking-widest font-light">
+        <div class = "flex-1 text-xl font-bold">
+            BLOOPER
+        </div>
+        <div class = "flex-1 inline-block">  
+            Blooper is a band with Carina on guitar, Helly on drums, Rafe on vocals, Nico on bass, Luisa on synth, Reg.
+        </div>
+        <div class = "flex-1 w-1/5"> 
+            <a href = "https://blooperspeedband.bandcamp.com/"> <img class = "rounded-sm" src = "../icons/bandcamp.png"> </a>
+        </div>
+        
+        <div class = "flex-1 text-xl">
+            BLOOPER WINS A CAR
+        </div>
+
+        <img class = "flex-1 w-3/5 mx-auto" src = "../work/blooperalbum/blooperwinsacar.png">
+        
+        <audio id="berlin" src="../work/blooperalbum/breakdownontheberlinturnpike.wav"></audio>
+        <div class = "flex-1 text-l">
+            BREAKDOWN ON THE BERLIN TURNPIKE
+        </div>
+        <div class = "flex-1 bg-black px-4 rounded-md w-1/5">  
+
+        <button onclick="document.getElementById('berlin').play()">PLAY</button> 
+        <button class = "float-right" onclick="document.getElementById('berlin').pause()">PAUSE</button> 
+        </div>
+
+        <audio id="surprise" src="../work/blooperalbum/surprise.wav"></audio>
+        <div class = "flex-1 text-l">
+                SURPRISE
+        </div>
+        <div class = "flex-1 bg-black px-4 tracking-widest rounded-md w-1/5">  
+    
+            <button onclick="document.getElementById('surprise').play()">PLAY</button> 
+            <button class = "float-right" onclick="document.getElementById('surprise').pause()">PAUSE</button> 
+            </div>
+
+        <audio id="bop" src="../work/blooperalbum/bop.wav"></audio>
+        <div class = "flex-1 text-l">
+            BOP
+        </div>
+        <div class = "flex-1 bg-black px-4 tracking-widest rounded-md w-1/5">  
+
+        <button onclick="document.getElementById('bop').play()">PLAY</button> 
+        <button class = "float-right" onclick="document.getElementById('bop').pause()">PAUSE</button> 
+        </div>    
+    
+        <audio id="yeah" src="../work/blooperalbum/yeah!.wav"></audio>
+        <div class = "flex-1 text-l">
+            YEAH!
+        </div>
+        <div class = "flex-1 bg-black px-4 tracking-widest rounded-md w-1/5">  
+
+        <button onclick="document.getElementById('yeah').play()">PLAY</button> 
+        <button class = "float-right" onclick="document.getElementById('yeah').pause()">PAUSE</button> 
+        </div>    
+        
+        
+        <audio id="car" src="../work/blooperalbum/BlooperWinsaCar.wav"></audio>
+        <div class = "flex-1 text-l">
+            BLOOPER WINS A CAR
+        </div>
+        <div class = "flex-1 bg-black px-4 tracking-widest rounded-md w-1/5">  
+
+        <button onclick="document.getElementById('car').play()">PLAY</button> 
+        <button class = "float-right" onclick="document.getElementById('car').pause()">PAUSE</button> 
+        </div>  
+
+        <img class = "flex-1 w-3/5 mx-auto" src="../work/bloopy.png">
+
+        </div>
+
+        
+    
+
+</body>
+</html>

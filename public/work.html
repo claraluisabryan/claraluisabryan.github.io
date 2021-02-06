@@ -1,0 +1,114 @@
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="/rosefavicon.png" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Work</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="../p5.js"></script>
+    <!-- <script src="../addons/p5.sound.min.js"></script> -->
+    <!-- <script src="../sketch.js"></script> -->
+</head>
+<body class = "bg-background1">
+<ul class = "z-10 top-0 fixed font-sans font-light right-10 top-4 text-xl text-text1 space-x-8">
+        <li class="inline-block bg-background1 rounded-md cursor-pointer tracking-widest hover:text-hovercolor"> <a href="about.html"> ABOUT </a> </li>
+        <li class="inline-block bg-background1 rounded-md cursor-pointer tracking-widest hover:text-hovercolor"> <a href="work.html"> WORK </a> </li>
+        <li class="inline-block bg-background1 rounded-md cursor-pointer tracking-widest hover:text-hovercolor"> <a href="contact.html"> CONTACT </a> </li>
+    </ul>
+    <ul class = "z-10 pt-2 top-0 bg-background1 rounded-md fixed left-10 top-4 tracking-widest font-header font-bold text-2xl text-text1 hover:text-hovercolor space-x-6">
+            <li class="inline-block cursor-pointer"> <a href="index.html"> LUISA BRYAN </a>  </li>
+</ul>
+
+
+<div class = "h-screen">
+    <div class = "pt-44 z-0 flex flex-row justify-center mx-32 space-x-20 font-sans text-text1">
+    <div class = "flex-1 hover:text-hovercolor"> 
+        <button type = "button" onclick="smoothScroll(document.getElementById('intmed'))"> 
+            <video class = "hover:shadow-xl" onclick="" loop onmouseenter="this.play(); var a = this.currentTime" onmouseleave="this.pause();this.a;">
+                <source src="../icons/interactive.mp4" type="video/mp4"></source>
+                </video>  <br> <div class = "tracking-widest text-sm font-thin text-center"> INTERACTIVE MEDIA  </div> </div>
+    <div class = "flex-1 hover:text-hovercolor"> 
+        <button type = "button" onclick="smoothScroll(document.getElementById('vid'))"> 
+            <video class = "hover:shadow-xl" loop onmouseover="this.play(); var a = this.currentTime" onmouseout="this.pause();this.a;">
+                <source src="../icons/videoanim.mp4" type="video/mp4"></source>
+            </video>  <br> <div class = "tracking-widest text-sm font-thin text-center "> VIDEO, ANIMATION, & GRAPHICS </div> </div>
+    <div class = "flex-1 hover:text-hovercolor"> 
+        <button type = "button" onclick="smoothScroll(document.getElementById('music'))"> 
+            <video class = "hover:shadow-xl" loop onmouseover="this.play(); var a = this.currentTime" onmouseout="this.pause();this.a;">
+                <source src="../icons/music.mp4" type="video/mp4"></source>
+            </video>  <br> <div class = "tracking-widest text-sm font-thin text-center"> MUSIC  </div> </div>
+    </div>
+    <!-- <button type = "button" onclick="smoothScroll(document.getElementById('intmed'))">  -->
+    <img class = "mx-auto lg: w-10 sm: w-4 pt-24 animate-bounce" src = "/arrow.png">
+
+
+    </div>
+
+
+<div id="intmed" class="mt-screen text-right pt-16 h-screen tracking-widest font-normal text-text1 text-2xl ml-10 mr-10">INTERACTIVE MEDIA <br><br>
+<ul class = "text-right text-text2 text-2xl list-inside font-thin space-y-7"> 
+    <li class = "hover:text-hovercolor cursor-pointer"> <div class = "font-normal inline-block"> <a href="energyskate.html"> Energy Skate: </div> An original educational iOS video game application. <div class = "inline-block font-normal"> Read the case study! Play the game!</div> </a>  </li>
+    <li class = "hover:text-hovercolor cursor-pointer"> <div class = "font-normal inline-block"> <a href="installations.html"> Installations: </div> Projectors, sculpture, animation, user input </a> </li>
+    <li class = "hover:text-hovercolor cursor-pointer"> <div class = "font-normal inline-block"> <a href="sketches.html"> Sketches: </div> Smaller projects that live on my computer </a> </li>
+    <!-- <li class = "hover:text-hovercolor cursor-pointer"> <div class = "font-normal inline-block">Websites: </div> The old internetluisa.com and the current one </li> -->
+    <li class = "hover:text-hovercolor cursor-pointer"> <div class = "font-normal inline-block"> <a href= "https://ieeexplore.ieee.org/abstract/document/9059289"> IEEE Published Research: </div> National Science Foundation funded computer science research regarding virtual reality environment design and user experience </a> </li>
+</ul>
+<button type = "button" onclick="smoothScroll(document.getElementById('vid'))"> 
+<img class = "m-auto lg: w-10 sm: w-4 pt-24 animate-bounce" src = "/arrow.png">
+
+</div> 
+
+
+<div id="vid" class="mt-20 text-right pt-16 h-screen tracking-widest font-normal text-text1 text-2xl ml-10 mr-10">VIDEO, ANIMATION, & GRAPHICS <br><br>
+    <ul class = "text-right text-text2 text-2xl list-inside font-thin space-y-7"> 
+        <li class = "hover:text-hovercolor cursor-pointer"> <div class = "font-normal inline-block"> <a href="commissionedvideos.html"> Commissioned Works: </div> Tiny Shed live studio recordings, promotional media, character animation, whiteboard style animation </a> </li>
+        <li class = "hover:text-hovercolor cursor-pointer"> <div class = "font-normal inline-block"> <a href="gifsgraphics.html"> GIFS and Graphics: </div> Animated WPA posters, digital medical illustrations  </a> </li>
+        <li class = "hover:text-hovercolor cursor-pointer"> <div class = "font-normal inline-block"> <a href = "mocumentaries.html"> Mocumentaries: </div> Blooper's the Punk Singers, Microsoft software reviews, Groupon ad  </a> </li>
+    </ul>
+<button type = "button" onclick="smoothScroll(document.getElementById('music'))"> 
+<img class = "m-auto lg: w-10 sm: w-4 pt-24 animate-bounce" src = "/arrow.png">
+
+    </div> 
+
+
+<div id="music" class="mt-20 text-right pt-16 h-screen tracking-widest font-normal text-text1 text-2xl ml-10 mr-10"> MUSIC <br><br>
+    <ul class = "text-right text-text2 text-2xl list-inside font-thin space-y-7"> 
+        <li class = "hover:text-hovercolor cursor-pointer"> <div class = "font-normal inline-block"> <a href = "saintsomething.html"> Saint Something: </div> Anjali, Carina, Ginger, Luisa </a> </li>
+        <li class = "hover:text-hovercolor cursor-pointer"> <div class = "font-normal inline-block"> <a href = "piano.html"> Classical Piano and Accompaniment experience: </div> Solo performances and honors thesis experience </a> </li>
+        <li class = "hover:text-hovercolor cursor-pointer"> <div class = "font-normal inline-block"> <a href = "collabmusic.html"> Collaborations with Friends:</div>  Kushqueenbb, Nice Elevator  </a> </li>
+        <li class = "hover:text-hovercolor cursor-pointer"> <div class = "font-normal inline-block"> <a href = "blooper.html"> Blooper: </div> Carina, Helly, Luisa, Nico, Rafe and friends </a> </li>
+
+    </ul>
+    </div> 
+
+
+<!-- smoothScroll script -->
+<script> 
+window.smoothScroll = function(target) {
+    var scrollContainer = target;
+    do { //find scroll container
+        scrollContainer = scrollContainer.parentNode;
+        if (!scrollContainer) return;
+        scrollContainer.scrollTop += 1;
+    } while (scrollContainer.scrollTop == 0);
+
+    var targetY = 0;
+    do { //find the top of target relatively to the container
+        if (target == scrollContainer) break;
+        targetY += target.offsetTop;
+    } while (target = target.offsetParent);
+
+    scroll = function(c, a, b, i) {
+        i++; if (i > 30) return;
+        c.scrollTop = a + (b - a) / 30 * i;
+        setTimeout(function(){ scroll(c, a, b, i); }, 20);
+    }
+    // start scrolling
+    scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+    console.log("heyy");
+}
+</script>
+
+</body>
+</html>
