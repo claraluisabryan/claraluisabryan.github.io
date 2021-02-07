@@ -11,29 +11,29 @@
     <!-- <script src="../sketch.js"></script> -->
 </head>
 <body class = "bg-background1">
-<ul class = "z-10 top-0 fixed font-sans font-light right-10 top-4 text-xl text-text1 space-x-8">
-        <li class="inline-block bg-background1 rounded-md cursor-pointer tracking-widest hover:text-hovercolor"> <a href="about.html"> ABOUT </a> </li>
-        <li class="inline-block bg-background1 rounded-md cursor-pointer tracking-widest hover:text-hovercolor"> <a href="work.html"> WORK </a> </li>
-        <li class="inline-block bg-background1 rounded-md cursor-pointer tracking-widest hover:text-hovercolor"> <a href="contact.html"> CONTACT </a> </li>
-    </ul>
-    <ul class = "z-10 pt-2 top-0 bg-background1 rounded-md fixed left-10 top-4 tracking-widest font-header font-bold text-2xl text-text1 hover:text-hovercolor space-x-6">
-            <li class="inline-block cursor-pointer"> <a href="index.html"> LUISA BRYAN </a>  </li>
+<ul class = "z-10 top-0 fixed font-sans font-light right-2 md:right-10 top-4 text-base md:text-xl text-text1 space-x-2 md:space-x-8">
+    <li class="inline-block bg-background1 rounded-md cursor-pointer tracking-widest hover:text-hovercolor"> <a href="about.html"> ABOUT </a> </li>
+    <li class="inline-block bg-background1 rounded-md cursor-pointer tracking-widest hover:text-hovercolor"> <a href="work.html"> WORK </a> </li>
+    <li class="inline-block bg-background1 rounded-md cursor-pointer tracking-widest hover:text-hovercolor"> <a href="contact.html"> CONTACT </a> </li>
+</ul>
+<ul class = "z-10 top-0 bg-background1 rounded-md fixed left-2 md:left-10 top-4 tracking-widest font-header font-bold text-lg md:text-2xl text-text1 hover:text-hovercolor space-x-6">
+        <li class="inline-block cursor-pointer"> <a href="index.html"> LUISA BRYAN </a>  </li>
 </ul>
 
 
 <div class = "h-screen">
-    <div class = "pt-44 z-0 flex flex-row justify-center mx-32 space-x-20 font-sans text-text1">
-    <div class = "flex-1 hover:text-hovercolor"> 
+    <div class = "md:pt-44 pt-24 z-0 flex md:flex-row flex-col md:w-4/5 w-2/5 md:mx-auto mx-auto justify-center mx-32 md:space-x-20 space-y-4 md:space-y-0 font-sans text-text1">
+    <div class = "flex-1 hover:text-hovercolor md:w-full w-2/5"> 
         <button type = "button" onclick="smoothScroll(document.getElementById('intmed'))"> 
             <video class = "hover:shadow-xl" onclick="" loop onmouseenter="this.play(); var a = this.currentTime" onmouseleave="this.pause();this.a;">
                 <source src="../icons/interactive.mp4" type="video/mp4"></source>
                 </video>  <br> <div class = "tracking-widest text-sm font-thin text-center"> INTERACTIVE MEDIA  </div> </div>
-    <div class = "flex-1 hover:text-hovercolor"> 
+    <div class = "flex-1 hover:text-hovercolor md:w-full w-2/5"> 
         <button type = "button" onclick="smoothScroll(document.getElementById('vid'))"> 
             <video class = "hover:shadow-xl" loop onmouseover="this.play(); var a = this.currentTime" onmouseout="this.pause();this.a;">
                 <source src="../icons/videoanim.mp4" type="video/mp4"></source>
             </video>  <br> <div class = "tracking-widest text-sm font-thin text-center "> VIDEO, ANIMATION, & GRAPHICS </div> </div>
-    <div class = "flex-1 hover:text-hovercolor"> 
+    <div class = "flex-1 hover:text-hovercolor md:w-full w-2/5"> 
         <button type = "button" onclick="smoothScroll(document.getElementById('music'))"> 
             <video class = "hover:shadow-xl" loop onmouseover="this.play(); var a = this.currentTime" onmouseout="this.pause();this.a;">
                 <source src="../icons/music.mp4" type="video/mp4"></source>
