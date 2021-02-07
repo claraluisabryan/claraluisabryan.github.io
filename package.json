@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "tailwindcss": "^2.0.2"
+  },
+  "devDependencies": {
+    "gh-pages": "^3.1.0"
   }
 }

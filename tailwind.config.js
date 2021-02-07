@@ -39,6 +39,9 @@ module.exports = {
         lg: '24px',
         xl: '48px',
         xxl: '400px',
+       },
+       letterSpacing: {
+         'thewidest': '3px',
        }
     },
   },
