@@ -18,7 +18,8 @@ function draw() {
   check();
   fill(fillcolor);
   stroke(strokecolor);
-  ellipse(pmouseX, pmouseY, 30, 30);
+  strokeWeight(3);
+  ellipse(pmouseX, pmouseY, 25, 25);
 }
 
 
