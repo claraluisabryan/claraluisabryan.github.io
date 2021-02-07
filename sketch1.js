@@ -34,6 +34,7 @@ function check(){
   //   strokecolor='#ffcccc';
   // }
   if (mouseX%200<=100){
+    // if(false){
     fillcolor = '#ffcccc';
     strokecolor='#C76176';
   }
