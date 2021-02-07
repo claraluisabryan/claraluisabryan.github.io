@@ -12,12 +12,12 @@ function setup(){
 function draw() {
 	background('#333333');
 	noStroke();
-  translate(width/1.6,height/1.8);
+  translate(width/2,height/2);
 	// fill(0,150,240,100);
 	// drawLiq(40,50,30);
-	fill('#C76176');
-	drawLiq(60,60,25);
 	fill('#ffcccc');
+	drawLiq(60,60,25);
+	fill('#C76176');
 	drawLiq(80,45,20);
 }
 
