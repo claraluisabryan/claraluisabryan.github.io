@@ -38,7 +38,7 @@ module.exports = {
         md: '16px',
         lg: '24px',
         xl: '48px',
-        xxl: '400px',
+        xxl: '80px',
        },
        letterSpacing: {
          'thewidest': '3px',
