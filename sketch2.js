@@ -17,7 +17,7 @@ function draw() {
 function indec(){
   noStroke();
   fill('#C76176');
-  ellipse(mouseX-(mouseX-pmouseX)*1000, mouseY-(mouseY-pmouseY)*1000, xx, yy);
+  ellipse(mouseX, mouseY, xx, yy);
   if (frameCount%100<50){
     xx+=.5;
     yy+=.5;
