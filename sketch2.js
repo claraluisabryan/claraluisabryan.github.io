@@ -1,6 +1,6 @@
 var canvas;
-var xx=15;
-var yy=15;
+var xx=100;
+var yy=100;
 
 function setup(){
   canvas = createCanvas(windowWidth, windowHeight);
