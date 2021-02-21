@@ -29,7 +29,7 @@ function drawLiq(vNnum,nm,sm){
 	for(let i = 0; i  < vNnum + 3; i++){
 		let ind = i%vNnum;
 		let rad = dr *ind;
-		let r = sm/30*height*0.4 + noise((pmouseY-mouseY)/nm + ind) * height*0.1 + sin((frameCount)/sm + ind)*height*0.05;
+		let r = sm/30*height*0.4 + noise((frameCount)/nm + ind) * height*0.1 + sin((frameCount)/sm + ind)*height*0.05;
 		curveVertex(cos(rad)*r * 1.3, sin(rad)*r);
 	}
 	endShape();

@@ -1,8 +1,8 @@
 
 
 var canvas;
-var fillcolor = '#ffcccc';
-var strokecolor = '#C76176';
+var fillcolor = '#C76176';
+var strokecolor = '#ffcccc';
 //var pressCount = 0;
 
 function setup(){
@@ -15,11 +15,11 @@ function setup(){
 function draw() {
 	//background('#333333');
   //noStroke();
-  check();
+  //check();
   fill(fillcolor);
   stroke(strokecolor);
   strokeWeight(3);
-  ellipse(pmouseX, pmouseY, 25, 25);
+  ellipse(pmouseX, pmouseY, 20, 20);
 }
 
 
