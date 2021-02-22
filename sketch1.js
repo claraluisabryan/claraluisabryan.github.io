@@ -18,7 +18,7 @@ function draw() {
   //check();
   fill(fillcolor);
   stroke(strokecolor);
-  strokeWeight(3);
+  strokeWeight(1);
   ellipse(pmouseX, pmouseY, 20, 20);
 }
 
