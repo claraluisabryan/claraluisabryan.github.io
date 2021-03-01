@@ -3,7 +3,7 @@ var xx=100;
 var yy=100;
 
 function setup(){
-  canvas = createCanvas(windowWidth, windowHeight);
+  canvas = createCanvas(windowWidth, windowHeight*1.35);
   canvas.position(0,0);
   canvas.style('z-index', '-1');
   background('#333333');
@@ -29,6 +29,6 @@ function indec(){
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(windowWidth, windowHeight*1.35);
   background('#333333');
 }
