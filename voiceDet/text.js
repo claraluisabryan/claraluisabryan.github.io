@@ -1,0 +1,221 @@
+    var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
+	// myRec.continuous = true; // do continuous recognition
+	  myRec.interimResults = true; // allow partial recognition (faster, less accurate)
+
+    myRec.continuous = false; // turn continuous off!
+    myRec.onError = restart;
+    myRec.onEnd = restart;
+    myRec.interimResults = true;
+    //myRec.interrupt = false;
+
+    let serial; // variable to hold an instance of the serialport library
+    let portName = '/dev/tty.usbmodem14101';  // fill in your serial port name here
+    let inData; 
+    
+
+    function restart(){
+        myRec.start();
+    }
+
+    let GS;
+    function preload() {
+      GS = loadFont('../fonts/Gill Sans.otf');
+    //   PRETTY = loadFont('https://use.typekit.net/xvf7vtv.css');
+    }
+
+    var thecol;
+    var canvas;
+    // var clouds;
+
+    const Y_AXIS = 1;
+    const X_AXIS = 2;
+    let b1, b2, c1, c2;
+
+	function setup()
+	{
+        canvas = createCanvas(windowWidth, windowHeight);
+        canvas.position(0,0);
+        canvas.style('z-index', '1');
+
+		myRec.onResult = parseResult; // now in the constructor
+		myRec.start(); // start engine
+
+        //gradient colors
+        b1 = color(219, 234, 254);
+        b2 = color(251, 207, 232);
+        c1 = color(204, 102, 0);
+        c2 = color(0, 102, 153);
+        setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
+        setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
+        //serial
+        serial = new p5.SerialPort();       // make a new instance of the serialport library
+        serial.on('list', printList);  // set a callback function for the serialport list event
+        serial.on('connected', serverConnected); // callback for connecting to the server
+        serial.on('open', portOpen);        // callback for the port opening
+        serial.on('data', serialEvent);     // callback for when new data arrives
+        serial.on('error', serialError);    // callback for errors
+        serial.on('close', portClose);      // callback for the port closing
+        serial.list();                      // list the serial ports
+        serial.open(portName);              // open a serial port
+	}
+
+  var personCount = 0;
+  var prevPersonCount = 0;
+
+  function draw(){
+    if (inData<20){
+      //console.log("sensor value: " + inData);
+      prevPersonCount=personCount;
+      personCount+=1;
+      fill(0);
+      ellipse(width/2,height/2,personCount,personCount);
+      console.log(personCount);
+      console.log(prevPersonCount);
+    }
+    else{
+      prevPersonCount+=1;
+    }
+ }
+
+  // get the list of ports:
+  function printList(portList) {
+    // portList is an array of serial port names
+    for (var i = 0; i < portList.length; i++) {
+      // Display the list the console:
+      console.log(i + portList[i]);
+    }
+  }
+
+function serverConnected() {
+    console.log('connected to server.');
+  }
+   
+  function portOpen() {
+    console.log('the serial port opened.')
+  }
+   
+  function serialEvent() {
+    inData = Number(serial.read());
+  }
+   
+  function serialError(err) {
+    console.log('Something went wrong with the serial port. ' + err);
+  }
+   
+  function portClose() {
+    console.log('The serial port closed.');
+  }
+
+
+  //windowresize handling
+    function windowResized() {
+        resizeCanvas(windowWidth, windowHeight);
+        setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
+        setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
+      }
+
+  //gradient function
+      function setGradient(x, y, w, h, c1, c2, axis) {
+        noFill();
+      
+        if (axis === Y_AXIS) {
+          // Top to bottom gradient
+          for (let i = y; i <= y + h; i++) {
+            let inter = map(i, y, y + h, 0, 1);
+            let c = lerpColor(c1, c2, inter);
+            stroke(c);
+            line(x, i, x + w, i);
+          }
+        } else if (axis === X_AXIS) {
+          // Left to right gradient
+          for (let i = x; i <= x + w; i++) {
+            let inter = map(i, x, x + w, 0, 1);
+            let c = lerpColor(c1, c2, inter);
+            stroke(c);
+            line(i, y, i, y + h);
+          }
+        }
+      }
+
+
+    let words =  [];
+    var urword = "";
+
+    let personwords = [];
+
+	function parseResult()
+	{     
+        var mostrecentword = myRec.resultString.split(' ').pop();
+        //var lastwords = mostrecentword.slice(mostrecentword.length-5,mostrecentword.length-1);
+        if (words[0]!=mostrecentword){ 
+            words.unshift(mostrecentword);}
+        if (words.length>5){
+            words.pop()
+        }
+
+        if (prevPersonCount!=personCount){
+          if (personwords[0]!=mostrecentword) {
+          personwords.unshift(mostrecentword); }
+          console.log(personwords);
+        }
+        setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
+        setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
+
+        
+        if (typeof words[1] == 'undefined' || typeof words[2] == 'undefined' || typeof words[3] == 'undefined'){
+          bigword();
+        }
+        else{
+          wordfunpicker();
+        }
+	}
+
+    function wordfunpicker(){
+      let picker = Math.floor(Math.random() * 2); //random num 1 or 2
+      if (picker == 0){
+        return bigword();
+      }
+      else{
+        return threewordsvert();
+      }
+    }
+
+    //word layout functions
+
+    function bigword(){
+		  textSize(200);
+      textFont(GS);
+      fill("#FFFFFF");
+      stroke("#000000");
+		  textAlign(CENTER, CENTER);
+		  text(words[0].toUpperCase(),width/2,height/2);
+    }
+
+    function threewordsvert(){
+		  textSize(170);
+      textFont(GS);
+      fill("#FFFFFF");
+      stroke("#000000");
+		  textAlign(CENTER, CENTER);
+		  text(words[0].toUpperCase(),width/2,3*height/4);
+      text(words[1].toUpperCase(),width/2,2*height/4);
+      text(words[2].toUpperCase(),width/2, height/4);
+    }
+
+
+//transition from video to text... add serial code here
+  //   function fadeOutEffect() {
+  //     var fadeTarget = document.getElementById("target");
+  //     var fadeEffect = setInterval(function () {
+  //         if (!fadeTarget.style.opacity) {
+  //             fadeTarget.style.opacity = 1;
+  //         }
+  //         if (fadeTarget.style.opacity > 0) {
+  //             fadeTarget.style.opacity -= 0.1;
+  //         } else {
+  //             clearInterval(fadeEffect);
+  //         }
+  //     }, 200);
+  // }
+  
+  // document.getElementById("target").addEventListener('click', fadeOutEffect);
