@@ -8,6 +8,10 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
     myRec.interimResults = true;
     //myRec.interrupt = false;
 
+    let serial; // variable to hold an instance of the serialport library
+    let portName = '/dev/tty.usbmodem14101';  // fill in your serial port name here
+    let inData; 
+
     function restart(){
         myRec.start();
     }
@@ -42,8 +46,89 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
         c2 = color(0, 102, 153);
         setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
         setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
-
+      //serial
+      serial = new p5.SerialPort();       // make a new instance of the serialport library
+      serial.on('list', printList);  // set a callback function for the serialport list event
+      serial.on('connected', serverConnected); // callback for connecting to the server
+      serial.on('open', portOpen);        // callback for the port opening
+      serial.on('data', serialEvent);     // callback for when new data arrives
+      serial.on('error', serialError);    // callback for errors
+      serial.on('close', portClose);      // callback for the port closing
+      serial.list();                      // list the serial ports
+      serial.open(portName);              // open a serial port
 	}
+
+var personCount = 0;
+
+var within = false;
+var done = false;
+var i = 0;
+var phoneDown = false;
+
+var serialArray = new Array(50);
+
+function draw(){
+  if (serialArray.length>30){
+  serialArray.pop()
+  }
+  else{
+  serialArray.unshift(inData);
+
+  }
+  var total = 0;
+  for (var i = 0; i < serialArray.length; i++){
+    total += serialArray[i];
+  }
+  var avg = total/serialArray.length;
+  if (avg<=10){
+    within = true;
+    phoneDown=true;
+    //i=i + 1;
+  }
+  else {
+      within = false;
+      done = false;
+      phoneDown=false;
+    i=0;
+  }
+  if (within && !done){
+    done = true;
+    if (phoneDown){
+    personCount+=1;
+    console.log(personCount);
+    }
+  }
+  }
+
+
+// get the list of ports:
+function printList(portList) {
+  // portList is an array of serial port names
+  for (var i = 0; i < portList.length; i++) {
+    // Display the list the console:
+    console.log(i + portList[i]);
+  }
+}
+
+function serverConnected() {
+  console.log('connected to server.');
+}
+ 
+function portOpen() {
+  console.log('the serial port opened.')
+}
+
+function serialEvent() {
+  inData = Number(serial.read());
+}
+ 
+function serialError(err) {
+  console.log('Something went wrong with the serial port. ' + err);
+}
+ 
+function portClose() {
+  console.log('The serial port closed.');
+}
 
   //windowresize handling
     function windowResized() {
@@ -75,13 +160,14 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
         }
       }
 
+let words =  [];
+var urword = "";
 
-    let words =  [];
-    var urword = "";
+let stream = [[]];;
+let personwords = [];
+
 	function parseResult()
 	{     
-        //background("#FFFFF");
-
         setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
         setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
 
@@ -104,8 +190,6 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
             }
         });
         
-
-
         var url1 = "https://wordsapiv1.p.rapidapi.com/words/";
         var word = mostrecentword;
         var relationship = "/synonyms";
@@ -116,12 +200,25 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
         
         xhr.send(data);
 
-        //var lastwords = mostrecentword.slice(mostrecentword.length-5,mostrecentword.length-1);
         if (words[0]!=urword){ 
-            words.unshift(urword);}
+            words.unshift(urword);
+            if (phoneDown){
+              stream[personCount-1].push(urword);
+              within = true;
+              for (var i = 0; i < personCount; i++){
+                stream[i]=stream[i];
+                stream[personCount]=[];
+              }
+              console.log(stream);
+            }
+          
+          }
+
         if (words.length>5){
             words.pop()
         }
+
+        
         
         if (typeof words[1] == 'undefined' || typeof words[2] == 'undefined' || typeof words[3] == 'undefined'){
           bigword();
