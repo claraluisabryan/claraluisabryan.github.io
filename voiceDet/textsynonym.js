@@ -24,7 +24,6 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
 
     var thecol;
     var canvas;
-    // var clouds;
 
     const Y_AXIS = 1;
     const X_AXIS = 2;
@@ -34,7 +33,7 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
 	{
         canvas = createCanvas(windowWidth, windowHeight);
         canvas.position(0,0);
-        canvas.style('z-index', '1');
+        canvas.style('z-index', '-1');
 
 		myRec.onResult = parseResult; // now in the constructor
 		myRec.start(); // start engine
@@ -80,7 +79,7 @@ function draw(){
     total += serialArray[i];
   }
   var avg = total/serialArray.length;
-  if (avg<=10){
+  if (avg<=3){
     within = true;
     phoneDown=true;
     //i=i + 1;
@@ -89,9 +88,11 @@ function draw(){
       within = false;
       done = false;
       phoneDown=false;
+      fadeInEffect()
     i=0;
   }
   if (within && !done){
+    fadeOutEffect()
     done = true;
     if (phoneDown){
     personCount+=1;
@@ -279,3 +280,24 @@ let personwords = [];
       text(words[1].toUpperCase(),width/2,2*height/4);
       text(words[2].toUpperCase(),width/2, height/4);
     }
+
+
+    //transition from video to text... add serial code here
+  function fadeOutEffect() {
+    var fadeTarget = document.getElementById("target");
+    var fadeEffect = setInterval(function () {
+        if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+        }
+        if (fadeTarget.style.opacity > 0) {
+            fadeTarget.style.opacity -= 0.2;
+        } else {
+            clearInterval(fadeEffect);
+        }
+    }, 50);
+}
+
+function fadeInEffect() {
+  var fadeTarget = document.getElementById("target");
+  fadeTarget.style.opacity = 1;
+}
