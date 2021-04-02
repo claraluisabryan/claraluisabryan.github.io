@@ -9,8 +9,8 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
   //myRec.interrupt = false;
 
   let serial; // variable to hold an instance of the serialport library
-  let portName1 = '/dev/tty.usbmodem14101';  // fill in your serial port name here
-  let portName = '/dev/tty.usbmodemFA121';
+  let portNameLuLaptop = '/dev/tty.usbmodem14101';  // fill in your serial port name here
+  let portName = '/dev/tty.usbmodem14601';
   let inData; 
 
 
@@ -82,7 +82,7 @@ function draw(){
     total += serialArray[i];
   }
   var avg = total/serialArray.length;
-  console.log(avg);
+  ///console.log(avg);
   if (avg<=10){
     within = true;
     phoneDown=true;
