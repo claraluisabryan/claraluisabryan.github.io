@@ -10,7 +10,7 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
 
     let serial; // variable to hold an instance of the serialport library
     let portNameLuLaptop = '/dev/tty.usbmodem14101';  // fill in your serial port name here
-    let portName = '/dev/tty.usbmodemFA131';  // fill in your serial port name here
+    let portName = '/dev/tty.usbmodem14101';  // fill in your serial port name here
     let inData; 
 
     function restart(){
@@ -18,17 +18,19 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
     }
 
 
-// let stream = ['luisa', 'loves', 'u', 'yes', 'yes', 'pizza', 'one', 'two', 'three', 'yerba', 'is', 'caffene', 'lsdkjfks', 'sk', 
+// let paragraph = ['luisa', 'loves', 'u', 'yes', 'yes', 'pizza', 'one', 'two', 'three', 'yerba', 'is', 'caffene', 'lsdkjfks', 'sk', 
 // 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie',
 // 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie',
 // 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie',
 // 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie'];
+
 
 let GS;
 function preload() {
   GS = loadFont('../fonts/Gill Sans.otf');
 }
 
+let mic;
 var canvas;
 function setup(){
   //canvas init
@@ -50,6 +52,14 @@ function setup(){
   serial.on('close', portClose);      // callback for the port closing
   serial.list();                      // list the serial ports
   serial.open(portName);              // open a serial port
+  background(251, 207, 232);
+    // Create an Audio input
+  mic = new p5.AudioIn();
+
+  // start the Audio Input.
+  // By default, it does not .connect() (to the computer speakers)
+  mic.start();
+
 }
 
 var personCount = 0;
@@ -62,6 +72,8 @@ var phoneDown = false;
 var serialArray = new Array(50);
 
 function draw(){
+  //console.log(vol);
+
   if (serialArray.length>30){
   serialArray.pop()
   }
@@ -70,28 +82,53 @@ function draw(){
 
   }
   var total = 0;
+  var h;
   for (var i = 0; i < serialArray.length; i++){
     total += serialArray[i];
   }
   var avg = total/serialArray.length;
   //console.log(avg);
-  if (avg<=10){
+  if (avg<=100){
     within = true;
     phoneDown=true;
-    //i=i + 1;
+    // Get the overall volume (between 0 and 1.0)
+    let vol = mic.getLevel();
+    var h = map(vol, 0, 1, 800, 5000);
+    console.log(h);
+    blendMode(BLEND);
+    background(251, 207, 232);
+    //noStroke();
+    blendMode(MULTIPLY);
+    noStroke();
+    translate(width/2,height/2);
+    fill(0,0,250);
+    drawLiq(18,50,20,100,h);
+    fill(0,250,0);
+    drawLiq(15,60,25,120,h);
+    fill(250,0,0);
+    drawLiq(12,45,15,150,h);
+    //ellipse(width / 2, height/2, h, h);
   }
   else {
       within = false;
       done = false;
       phoneDown=false;
-      fadeInEffect();
-    i=0;
+      textSize(32);
+      textFont(GS);
+      blendMode(BLEND);
+      background(251, 207, 232);
+      text(paragraph.join(" "), 20, 20, width, height);
+      
+    
   }
   if (within && !done){
-    fadeOutEffect();
     //fontDisplay();
     done = true;
     if (phoneDown){
+      background(251, 207, 232);
+      paragraph=[];
+
+
     personCount+=1;
     console.log(personCount);
     }
@@ -100,6 +137,7 @@ function draw(){
   let words =  [];
   var synonym = "";
   var paragraph = [];
+  var paragraphPrev = [];
   var i = 1;
   var writeonscreen = "";
   
@@ -143,11 +181,12 @@ function parseResult()
         paragraph.push(mostrecentword);
         }
         console.log(paragraph);
+
       }
       else {
         writeonscreen = paragraph.join(" ");
         text(writeonscreen, 10, 10);
-        paragraph = [];
+        //paragraph = [];
       }
     }
 
@@ -156,25 +195,6 @@ function parseResult()
   }
 }
  
-//transition from video to text... add serial code here
-function fadeOutEffect() {
-  var fadeTarget = document.getElementById("target");
-  var fadeEffect = setInterval(function () {
-      if (!fadeTarget.style.opacity) {
-          fadeTarget.style.opacity = 1;
-      }
-      if (fadeTarget.style.opacity > 0) {
-          fadeTarget.style.opacity -= 0.2;
-      } else {
-          clearInterval(fadeEffect);
-      }
-  }, 50);
-}
-
-function fadeInEffect() {
-  var fadeTarget = document.getElementById("target");
-  fadeTarget.style.opacity = 1;
-}  
 
 let points;
 function fontDisplay(){
@@ -224,8 +244,8 @@ function portClose() {
 //windowresize handling
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
-  setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
+  //setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
+  //setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
 }
 
 function oneOrTwo(){
@@ -234,4 +254,20 @@ function oneOrTwo(){
     return 0; }
   else {
     return 1; }
+}
+
+
+function drawLiq(vNnum,nm,sm,fcm,h){
+	push();
+	rotate(frameCount/fcm);
+	let dr = TWO_PI/vNnum;
+	beginShape();
+	for(let i = 0; i  < vNnum + 3; i++){
+		let ind = i%vNnum;
+		let rad = dr *ind;
+		let r = height*0.3 + noise(frameCount/nm + ind) * h*0.1 + sin(frameCount/sm + ind)*h*0.05;
+		curveVertex(cos(rad)*r, sin(rad)*r);
+	}
+	endShape();
+	pop();
 }
