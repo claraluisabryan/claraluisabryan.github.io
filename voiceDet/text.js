@@ -26,11 +26,6 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
 
   var thecol;
   var canvas;
-  // var clouds;
-
-  const Y_AXIS = 1;
-  const X_AXIS = 2;
-  let b1, b2, c1, c2;
 
 function setup()
 {
@@ -42,9 +37,6 @@ function setup()
   myRec.start(); // start engine
 
       background(251, 207, 232);
-
-      // setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
-      // setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
       //serial
       serial = new p5.SerialPort();       // make a new instance of the serialport library
       serial.on('list', printList);  // set a callback function for the serialport list event

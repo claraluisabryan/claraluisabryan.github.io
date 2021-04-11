@@ -26,9 +26,6 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
     var thecol;
     var canvas;
 
-    const Y_AXIS = 1;
-    const X_AXIS = 2;
-    let b1, b2, c1, c2;
 
 	function setup()
 	{
@@ -38,14 +35,8 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
 
 		myRec.onResult = parseResult; // now in the constructor
 		myRec.start(); // start engine
+    background(251, 207, 232);
 
-        //gradient colors
-        b1 = color(219, 234, 254);
-        b2 = color(251, 207, 232);
-        c1 = color(204, 102, 0);
-        c2 = color(0, 102, 153);
-        setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
-        setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
       //serial
       serial = new p5.SerialPort();       // make a new instance of the serialport library
       serial.on('list', printList);  // set a callback function for the serialport list event
@@ -135,31 +126,7 @@ function portClose() {
   //windowresize handling
     function windowResized() {
         resizeCanvas(windowWidth, windowHeight);
-        setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
-        setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
-      }
-
-  //gradient function
-      function setGradient(x, y, w, h, c1, c2, axis) {
-        noFill();
-      
-        if (axis === Y_AXIS) {
-          // Top to bottom gradient
-          for (let i = y; i <= y + h; i++) {
-            let inter = map(i, y, y + h, 0, 1);
-            let c = lerpColor(c1, c2, inter);
-            stroke(c);
-            line(x, i, x + w, i);
-          }
-        } else if (axis === X_AXIS) {
-          // Left to right gradient
-          for (let i = x; i <= x + w; i++) {
-            let inter = map(i, x, x + w, 0, 1);
-            let c = lerpColor(c1, c2, inter);
-            stroke(c);
-            line(i, y, i, y + h);
-          }
-        }
+        background(251, 207, 232);
       }
 
 let words =  [];
@@ -170,10 +137,8 @@ let personwords = [];
 
 	function parseResult()
 	{     
-        setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
-        setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
+      background(251, 207, 232);
 
-          
         const data = null;
 
         const xhr = new XMLHttpRequest();
@@ -241,42 +206,22 @@ let personwords = [];
     }
 
     //word layout functions
-    function wordquad(){
-	  	textSize(80);
-      textFont(GS);
-      fill("#000000");
-		  textAlign(CENTER, CENTER); 
-		  text(words[0].toUpperCase(),4*width/5,5*height/7);
-	  	text(words[1].toUpperCase(),1*width/5,5*height/7);
-		  text(words[2].toUpperCase(),4*width/5,2*height/7);
-		  text(words[3].toUpperCase(),1*width/5,2*height/7);
-    }
 
     function bigword(){
 		  textSize(200);
       textFont(GS);
       fill("#FFFFFF");
-      stroke("#000000");
+      noStroke();
 		  textAlign(CENTER, CENTER);
 		  text(words[0].toUpperCase(),width/2,height/2);
-    }
-
-    function twowordshoriz(){
-		  textSize(140);
-      textFont(GS);
-      fill("#FFFFFF");
-      stroke("#000000");
-		  textAlign(CENTER, CENTER);
-		  text(words[0].toUpperCase(),4*width/5,height/2);
-      text(words[1].toUpperCase(),width/5,height/2);
     }
 
     function threewordsvert(){
 		  textSize(170);
       textFont(GS);
       fill("#FFFFFF");
-      stroke("#000000");
-		  textAlign(CENTER, CENTER);
+      noStroke();
+      textAlign(CENTER, CENTER);
 		  text(words[0].toUpperCase(),width/2,3*height/4);
       text(words[1].toUpperCase(),width/2,2*height/4);
       text(words[2].toUpperCase(),width/2, height/4);
