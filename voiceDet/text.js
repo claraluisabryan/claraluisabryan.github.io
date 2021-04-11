@@ -41,13 +41,10 @@ function setup()
   myRec.onResult = parseResult; // now in the constructor
   myRec.start(); // start engine
 
-      //gradient colors
-      b1 = color(219, 234, 254);
-      b2 = color(251, 207, 232);
-      c1 = color(204, 102, 0);
-      c2 = color(0, 102, 153);
-      setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
-      setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
+      background(251, 207, 232);
+
+      // setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
+      // setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
       //serial
       serial = new p5.SerialPort();       // make a new instance of the serialport library
       serial.on('list', printList);  // set a callback function for the serialport list event
@@ -140,31 +137,7 @@ function portClose() {
 //windowresize handling
   function windowResized() {
       resizeCanvas(windowWidth, windowHeight);
-      setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
-      setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
-    }
-
-//gradient function
-    function setGradient(x, y, w, h, c1, c2, axis) {
-      noFill();
-    
-      if (axis === Y_AXIS) {
-        // Top to bottom gradient
-        for (let i = y; i <= y + h; i++) {
-          let inter = map(i, y, y + h, 0, 1);
-          let c = lerpColor(c1, c2, inter);
-          stroke(c);
-          line(x, i, x + w, i);
-        }
-      } else if (axis === X_AXIS) {
-        // Left to right gradient
-        for (let i = x; i <= x + w; i++) {
-          let inter = map(i, x, x + w, 0, 1);
-          let c = lerpColor(c1, c2, inter);
-          stroke(c);
-          line(i, y, i, y + h);
-        }
-      }
+      background(251, 207, 232);
     }
 
 
@@ -194,11 +167,8 @@ function parseResult()
       if (words.length>5){
           words.pop()
       }
-
-
-      setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
-      setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
-
+      background(251, 207, 232);
+      //background(14, 0, 125);
       
       if (typeof words[1] == 'undefined' || typeof words[2] == 'undefined' || typeof words[3] == 'undefined'){
         bigword();
@@ -224,7 +194,7 @@ function parseResult()
     textSize(200);
     textFont(GS);
     fill("#FFFFFF");
-    stroke("#000000");
+    noStroke();
     textAlign(CENTER, CENTER);
     text(words[0].toUpperCase(),width/2,height/2);
   }
@@ -233,7 +203,7 @@ function parseResult()
     textSize(170);
     textFont(GS);
     fill("#FFFFFF");
-    stroke("#000000");
+    noStroke();
     textAlign(CENTER, CENTER);
     text(words[0].toUpperCase(),width/2,3*height/4);
     text(words[1].toUpperCase(),width/2,2*height/4);
