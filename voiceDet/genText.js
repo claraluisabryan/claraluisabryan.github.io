@@ -71,6 +71,7 @@ var phoneDown = false;
 
 var serialArray = new Array(50);
 
+
 function draw(){
   //console.log(vol);
 
@@ -94,7 +95,7 @@ function draw(){
     // Get the overall volume (between 0 and 1.0)
     let vol = mic.getLevel();
     var h = map(vol, 0, 1, 800, 5000);
-    console.log(h);
+    //console.log(h);
     blendMode(BLEND);
     background(251, 207, 232);
     //noStroke();
@@ -113,22 +114,23 @@ function draw(){
       within = false;
       done = false;
       phoneDown=false;
-      textSize(32);
+      textSize(100);
+      noStroke();
       textFont(GS);
       blendMode(BLEND);
       background(251, 207, 232);
+      // track word position
+
+
       text(paragraph.join(" "), 20, 20, width, height);
-      
-    
   }
+
   if (within && !done){
     //fontDisplay();
     done = true;
     if (phoneDown){
       background(251, 207, 232);
       paragraph=[];
-
-
     personCount+=1;
     console.log(personCount);
     }
@@ -271,3 +273,4 @@ function drawLiq(vNnum,nm,sm,fcm,h){
 	endShape();
 	pop();
 }
+
