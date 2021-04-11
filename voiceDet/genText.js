@@ -89,7 +89,7 @@ function draw(){
   }
   var avg = total/serialArray.length;
   //console.log(avg);
-  if (avg<=100){
+  if (avg<=10){
     within = true;
     phoneDown=true;
     // Get the overall volume (between 0 and 1.0)
