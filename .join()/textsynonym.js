@@ -9,8 +9,8 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
     //myRec.interrupt = false;
 
     let serial; // variable to hold an instance of the serialport library
-    let portNameLuLaptop = '/dev/tty.usbmodem14101';  // fill in your serial port name here
-    let portName = '/dev/tty.usbmodemFA121';
+    let portName = '/dev/tty.usbmodem14101';  // fill in your serial port name here
+    //let portName = '/dev/tty.usbmodemFA121';
     let inData; 
 
     function restart(){
@@ -71,7 +71,7 @@ function draw(){
     total += serialArray[i];
   }
   var avg = total/serialArray.length;
-  if (avg<=10){
+  if (avg<=20){
     within = true;
     phoneDown=true;
     //i=i + 1;
@@ -206,25 +206,102 @@ let personwords = [];
     }
 
     //word layout functions
-
+    var wordLen = 0;
     function bigword(){
-		  textSize(200);
       textFont(GS);
       fill("#FFFFFF");
       noStroke();
 		  textAlign(CENTER, CENTER);
+      for (i = 0; i<words[0].length; i++){
+        wordLen +=1;
+      }
+      if (wordLen <= 5){
+        textSize(200);
+      }
+      else if (wordLen > 5 && wordLen <=10){
+        textSize(180);
+      }
+      else if (wordLen > 10 && wordLen <=15){
+        textSize(140);
+      }
+      else if (wordLen > 15 && wordLen <=20){
+        textSize(120);
+      }
+      else if (wordLen > 20 && wordLen <=25){
+        textSize(100);
+      }
 		  text(words[0].toUpperCase(),width/2,height/2);
+      wordLen=0;
     }
 
     function threewordsvert(){
-		  textSize(170);
       textFont(GS);
       fill("#FFFFFF");
       noStroke();
       textAlign(CENTER, CENTER);
+
+      for (i = 0; i<words[0].length; i++){
+        wordLen +=1;
+      }
+      if (wordLen <= 5){
+        textSize(200);
+      }
+      else if (wordLen > 5 && wordLen <=10){
+        textSize(180);
+      }
+      else if (wordLen > 10 && wordLen <=15){
+        textSize(140);
+      }
+      else if (wordLen > 15 && wordLen <=20){
+        textSize(120);
+      }
+      else if (wordLen > 20 && wordLen <=25){
+        textSize(80);
+      }
 		  text(words[0].toUpperCase(),width/2,3*height/4);
+
+      wordLen=0;
+      for (i = 0; i<words[1].length; i++){
+        wordLen +=1;
+      }
+      if (wordLen <= 5){
+        textSize(200);
+      }
+      else if (wordLen > 5 && wordLen <=10){
+        textSize(180);
+      }
+      else if (wordLen > 10 && wordLen <=15){
+        textSize(140);
+      }
+      else if (wordLen > 15 && wordLen <=20){
+        textSize(120);
+      }
+      else if (wordLen > 20 && wordLen <=25){
+        textSize(80);
+      }
       text(words[1].toUpperCase(),width/2,2*height/4);
+
+      wordLen=0;
+      for (i = 0; i<words[2].length; i++){
+        wordLen +=1;
+      }
+      if (wordLen <= 5){
+        textSize(200);
+      }
+      else if (wordLen > 5 && wordLen <=10){
+        textSize(180);
+      }
+      else if (wordLen > 10 && wordLen <=15){
+        textSize(140);
+      }
+      else if (wordLen > 15 && wordLen <=20){
+        textSize(120);
+      }
+      else if (wordLen > 20 && wordLen <=25){
+        textSize(80);
+      }
       text(words[2].toUpperCase(),width/2, height/4);
+      wordLen=0;
     }
 
 
