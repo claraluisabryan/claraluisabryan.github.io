@@ -9,8 +9,8 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
     //myRec.interrupt = false;
 
     let serial; // variable to hold an instance of the serialport library
-    let portNameLuLaptop = '/dev/tty.usbmodem14101';  // fill in your serial port name here
-    let portName = '/dev/tty.usbmodemFD121';  // fill in your serial port name here
+    let portName = '/dev/tty.usbmodem14101';  // fill in your serial port name here
+    //let portName = '/dev/tty.usbmodemFD121';  // fill in your serial port name here
     let inData; 
 
     function restart(){
@@ -30,7 +30,6 @@ function preload() {
   GS = loadFont('../fonts/Gill Sans.otf');
 }
 
-let mic;
 var canvas;
 function setup(){
   //canvas init
@@ -52,13 +51,8 @@ function setup(){
   serial.on('close', portClose);      // callback for the port closing
   serial.list();                      // list the serial ports
   serial.open(portName);              // open a serial port
-  background(251, 207, 232);
-    // Create an Audio input
-  mic = new p5.AudioIn();
-
-  // start the Audio Input.
-  // By default, it does not .connect() (to the computer speakers)
-  mic.start();
+  //background(251, 207, 232);
+  background(188, 210, 245);
 
 }
 
@@ -70,11 +64,10 @@ var i = 0;
 var phoneDown = false;
 
 var serialArray = new Array(50);
-
+var grow = 0;
+var speed = 0;
 
 function draw(){
-  //console.log(vol);
-
   if (serialArray.length>30){
   serialArray.pop()
   }
@@ -92,22 +85,26 @@ function draw(){
   if (avg<=10){
     within = true;
     phoneDown=true;
-    // Get the overall volume (between 0 and 1.0)
-    let vol = mic.getLevel();
-    var h = map(vol, 0, 1, 800, 5000);
-    //console.log(h);
+    grow = speed + grow;
+    if (doGrow && grow<15){
+      grow+=2; }
+    else if (!doGrow && grow > 0) {
+      grow-=2;
+    }
+    //console.log(grow);
+
     blendMode(BLEND);
-    background(251, 207, 232);
+    background(153, 199, 245);
     //noStroke();
     blendMode(MULTIPLY);
     noStroke();
     translate(width/2,height/2);
     fill(0,0,250);
-    drawLiq(18,50,20,100,h);
+    drawLiq(22,50,20,100, grow);
     fill(0,250,0);
-    drawLiq(15,60,25,120,h);
+    drawLiq(19,60,25,120, grow);
     fill(250,0,0);
-    drawLiq(12,45,15,150,h);
+    drawLiq(16,45,15,150, grow);
     //ellipse(width / 2, height/2, h, h);
   }
   else {
@@ -142,10 +139,11 @@ function draw(){
   var paragraphPrev = [];
   var i = 1;
   var writeonscreen = "";
+  var doGrow = false;
   
 function parseResult()
 {     
-  background(250);   
+  //background(250);   
   const data = null;
 
   const xhr = new XMLHttpRequest();
@@ -174,6 +172,7 @@ function parseResult()
 
   if (words[0]!=synonym && words[0]!=mostrecentword){ 
       if (phoneDown){
+        doGrow=true;
         i = oneOrTwo();
         if (i==1){ 
         words.unshift(synonym);
@@ -190,6 +189,9 @@ function parseResult()
         text(writeonscreen, 10, 10);
         //paragraph = [];
       }
+    }
+    else{
+      doGrow = false;
     }
 
   if (words.length>5){
@@ -259,7 +261,7 @@ function oneOrTwo(){
 }
 
 
-function drawLiq(vNnum,nm,sm,fcm,h){
+function drawLiq(vNnum,nm,sm,fcm, grow){
 	push();
 	rotate(frameCount/fcm);
 	let dr = TWO_PI/vNnum;
@@ -267,7 +269,7 @@ function drawLiq(vNnum,nm,sm,fcm,h){
 	for(let i = 0; i  < vNnum + 3; i++){
 		let ind = i%vNnum;
 		let rad = dr *ind;
-		let r = height*0.3 + noise(frameCount/nm + ind) * h*0.1 + sin(frameCount/sm + ind)*h*0.05;
+		let r = height*0.3 + noise(frameCount/nm + ind) * height*0.1+grow + sin(frameCount/sm + ind)*height*0.05+grow;
 		curveVertex(cos(rad)*r, sin(rad)*r);
 	}
 	endShape();
