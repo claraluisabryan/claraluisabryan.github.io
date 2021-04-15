@@ -87,9 +87,9 @@ function draw(){
     phoneDown=true;
     grow = speed + grow;
     if (doGrow && grow<15){
-      grow+=2; }
+      grow+=3; }
     else if (!doGrow && grow > 0) {
-      grow-=2;
+      grow-=3;
     }
     //console.log(grow);
 
