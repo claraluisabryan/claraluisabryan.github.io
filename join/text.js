@@ -9,8 +9,8 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
   //myRec.interrupt = false;
 
   let serial; // variable to hold an instance of the serialport library
-  //let portName = '/dev/tty.usbmodem14101';  // fill in your serial port name here
-  let portName = '/dev/tty.usbmodemFA121';
+  let portName = '/dev/tty.usbmodem141301';  // fill in your serial port name here
+  //let portName = '/dev/tty.usbmodemFA121';
   let inData; 
 
 
@@ -20,7 +20,7 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
 
   let GS;
   function preload() {
-    GS = loadFont('../fonts/Gill Sans.otf');
+    GS = loadFont('../join/fonts/EuclidSquare-Light.ttf');
   //   PRETTY = loadFont('https://use.typekit.net/xvf7vtv.css');
   }
 
@@ -36,8 +36,8 @@ function setup()
   myRec.onResult = parseResult; // now in the constructor
   myRec.start(); // start engine
 
-      background(251, 207, 232);
-      //serial
+      background(112, 139, 176);
+  //serial
       serial = new p5.SerialPort();       // make a new instance of the serialport library
       serial.on('list', printList);  // set a callback function for the serialport list event
       serial.on('connected', serverConnected); // callback for connecting to the server
@@ -72,7 +72,7 @@ function draw(){
   }
   var avg = total/serialArray.length;
   //console.log(avg);
-  if (avg<=20){
+  if (avg<=10){
     within = true;
     phoneDown=true;
     //i=i + 1;
@@ -129,7 +129,8 @@ function portClose() {
 //windowresize handling
   function windowResized() {
       resizeCanvas(windowWidth, windowHeight);
-      background(251, 207, 232);
+      //background(251, 207, 232);
+      background(112, 139, 176);
     }
 
 
@@ -159,7 +160,7 @@ function parseResult()
       if (words.length>5){
           words.pop()
       }
-      background(251, 207, 232);
+      background(112, 139, 176);
       //background(14, 0, 125);
       
       if (typeof words[1] == 'undefined' || typeof words[2] == 'undefined' || typeof words[3] == 'undefined'){
@@ -196,6 +197,15 @@ function parseResult()
     else if (wordLen > 10 && wordLen <=15){
       textSize(140);
     }
+    else if (wordLen > 15 && wordLen <=20){
+      textSize(120);
+    }
+    else if (wordLen > 20 && wordLen <=25){
+      textSize(95);
+    }
+    else if (wordLen > 25 && wordLen <=30){
+      textSize(75);
+    }
     textFont(GS);
     fill("#FFFFFF");
     noStroke();
@@ -223,6 +233,15 @@ function parseResult()
     else if (wordLen > 10 && wordLen <=15){
       textSize(140);
     }
+    else if (wordLen > 15 && wordLen <=20){
+      textSize(120);
+    }
+    else if (wordLen > 20 && wordLen <=25){
+      textSize(95);
+    }
+    else if (wordLen > 25 && wordLen <=30){
+      textSize(75);
+    }
     text(words[0].toUpperCase(),width/2,3*height/4);
 
     wordLen = 0;
@@ -233,10 +252,19 @@ function parseResult()
       textSize(200);
     }
     else if (wordLen > 5 && wordLen <=10){
-      textSize(150);
+      textSize(180);
     }
     else if (wordLen > 10 && wordLen <=15){
-      textSize(100);
+      textSize(140);
+    }
+    else if (wordLen > 15 && wordLen <=20){
+      textSize(120);
+    }
+    else if (wordLen > 20 && wordLen <=25){
+      textSize(95);
+    }
+    else if (wordLen > 25 && wordLen <=30){
+      textSize(75);
     }
     text(words[1].toUpperCase(),width/2,2*height/4);
 
@@ -248,10 +276,19 @@ function parseResult()
       textSize(200);
     }
     else if (wordLen > 5 && wordLen <=10){
-      textSize(150);
+      textSize(180);
     }
     else if (wordLen > 10 && wordLen <=15){
-      textSize(100);
+      textSize(140);
+    }
+    else if (wordLen > 15 && wordLen <=20){
+      textSize(120);
+    }
+    else if (wordLen > 20 && wordLen <=25){
+      textSize(95);
+    }
+    else if (wordLen > 25 && wordLen <=30){
+      textSize(75);
     }
     text(words[2].toUpperCase(),width/2, height/4);
     wordLen = 0;

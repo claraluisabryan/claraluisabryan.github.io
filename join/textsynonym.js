@@ -9,7 +9,7 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
     //myRec.interrupt = false;
 
     let serial; // variable to hold an instance of the serialport library
-    let portName = '/dev/tty.usbmodem14101';  // fill in your serial port name here
+    let portName = '/dev/tty.usbmodem141301';  // fill in your serial port name here
     //let portName = '/dev/tty.usbmodemFA121';
     let inData; 
 
@@ -19,7 +19,7 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
 
     let GS;
     function preload() {
-      GS = loadFont('../fonts/Gill Sans.otf');
+      GS = loadFont('../join/fonts/EuclidSquare-Light.ttf');
     //   PRETTY = loadFont('https://use.typekit.net/xvf7vtv.css');
     }
 
@@ -35,7 +35,7 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
 
 		myRec.onResult = parseResult; // now in the constructor
 		myRec.start(); // start engine
-    background(251, 207, 232);
+    background(112, 139, 176);
 
       //serial
       serial = new p5.SerialPort();       // make a new instance of the serialport library
@@ -126,7 +126,7 @@ function portClose() {
   //windowresize handling
     function windowResized() {
         resizeCanvas(windowWidth, windowHeight);
-        background(251, 207, 232);
+        background(112, 139, 176);
       }
 
 let words =  [];
@@ -137,7 +137,7 @@ let personwords = [];
 
 	function parseResult()
 	{     
-      background(251, 207, 232);
+    background(112, 139, 176);
 
         const data = null;
 
@@ -228,7 +228,10 @@ let personwords = [];
         textSize(120);
       }
       else if (wordLen > 20 && wordLen <=25){
-        textSize(100);
+        textSize(95);
+      }
+      else if (wordLen > 25 && wordLen <=30){
+        textSize(75);
       }
 		  text(words[0].toUpperCase(),width/2,height/2);
       wordLen=0;
@@ -256,7 +259,10 @@ let personwords = [];
         textSize(120);
       }
       else if (wordLen > 20 && wordLen <=25){
-        textSize(80);
+        textSize(95);
+      }
+      else if (wordLen > 25 && wordLen <=30){
+        textSize(75);
       }
 		  text(words[0].toUpperCase(),width/2,3*height/4);
 
@@ -277,7 +283,10 @@ let personwords = [];
         textSize(120);
       }
       else if (wordLen > 20 && wordLen <=25){
-        textSize(80);
+        textSize(95);
+      }
+      else if (wordLen > 25 && wordLen <=30){
+        textSize(75);
       }
       text(words[1].toUpperCase(),width/2,2*height/4);
 
@@ -298,7 +307,10 @@ let personwords = [];
         textSize(120);
       }
       else if (wordLen > 20 && wordLen <=25){
-        textSize(80);
+        textSize(95);
+      }
+      else if (wordLen > 25 && wordLen <=30){
+        textSize(75);
       }
       text(words[2].toUpperCase(),width/2, height/4);
       wordLen=0;

@@ -9,7 +9,7 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
     //myRec.interrupt = false;
 
     let serial; // variable to hold an instance of the serialport library
-    let portName = '/dev/tty.usbmodem14101';  // fill in your serial port name here
+    let portName = '/dev/tty.usbmodem141301';  // fill in your serial port name here
     //let portName = '/dev/tty.usbmodemFD121';  // fill in your serial port name here
     let inData; 
 
@@ -27,7 +27,7 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
 
 let GS;
 function preload() {
-  GS = loadFont('../fonts/Gill Sans.otf');
+  GS = loadFont('../join/fonts/EuclidSquare-Light.ttf');
 }
 
 var canvas;
@@ -51,8 +51,7 @@ function setup(){
   serial.on('close', portClose);      // callback for the port closing
   serial.list();                      // list the serial ports
   serial.open(portName);              // open a serial port
-  //background(251, 207, 232);
-  background(188, 210, 245);
+  background(112, 139, 176);
 
 }
 
@@ -66,6 +65,8 @@ var phoneDown = false;
 var serialArray = new Array(50);
 var grow = 0;
 var speed = 0;
+var currWord = 0;
+var wordLen = 0;
 
 function draw(){
   if (serialArray.length>30){
@@ -94,7 +95,7 @@ function draw(){
     //console.log(grow);
 
     blendMode(BLEND);
-    background(153, 199, 245);
+    background(112, 139, 176);
     //noStroke();
     blendMode(MULTIPLY);
     noStroke();
@@ -115,18 +116,71 @@ function draw(){
       noStroke();
       textFont(GS);
       blendMode(BLEND);
-      background(251, 207, 232);
-      // track word position
+      fill(250);
+      textAlign(CENTER, CENTER);
+      background(112, 139, 176);
+      if (paragraph[currWord] !=null && paragraph[currWord+1] !=null){
+        for (i = 0; i<paragraph[currWord].length; i++){
+          wordLen +=1;
+        }
+        if (wordLen <= 5){
+          textSize(200);
+        }
+        else if (wordLen > 5 && wordLen <=10){
+          textSize(180);
+        }
+        else if (wordLen > 10 && wordLen <=15){
+          textSize(140);
+        }
+        else if (wordLen > 15 && wordLen <=20){
+          textSize(120);
+        }
+        else if (wordLen > 20 && wordLen <=25){
+          textSize(95);
+        }
+        else if (wordLen > 25 && wordLen <=30){
+          textSize(75);
+        }
+      text(paragraph[currWord].toUpperCase(), width/2, height/3); 
+      wordLen = 0;
 
-
-      text(paragraph.join(" "), 20, 20, width, height);
+        for (i = 0; i<paragraph[currWord+1].length; i++){
+          wordLen +=1;
+        }
+        if (wordLen <= 5){
+          textSize(200);
+        }
+        else if (wordLen > 5 && wordLen <=10){
+          textSize(180);
+        }
+        else if (wordLen > 10 && wordLen <=15){
+          textSize(140);
+        }
+        else if (wordLen > 15 && wordLen <=20){
+          textSize(120);
+        }
+        else if (wordLen > 20 && wordLen <=25){
+          textSize(95);
+        }
+        else if (wordLen > 25 && wordLen <=30){
+          textSize(75);
+        }
+      text(paragraph[currWord+1].toUpperCase(), width/2, 2*height/3); 
+      wordLen = 0;
+    }
+    
+      if (currWord<paragraph.length && frameCount%70==0){
+      currWord+=2; }
+      if (currWord>=paragraph.length-1) {
+      currWord = 0;
+      }
   }
 
   if (within && !done){
     //fontDisplay();
     done = true;
     if (phoneDown){
-      background(251, 207, 232);
+      background(112, 139, 176);
       paragraph=[];
     personCount+=1;
     console.log(personCount);
@@ -143,7 +197,6 @@ function draw(){
   
 function parseResult()
 {     
-  //background(250);   
   const data = null;
 
   const xhr = new XMLHttpRequest();
@@ -248,8 +301,8 @@ function portClose() {
 //windowresize handling
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
-  //setGradient(0, 0, width / 2, height, b1, b2, X_AXIS);
-  //setGradient(width / 2, 0, width / 2, height, b2, b1, X_AXIS);
+  background(112, 139, 176);
+
 }
 
 function oneOrTwo(){
