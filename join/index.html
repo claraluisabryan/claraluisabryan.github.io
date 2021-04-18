@@ -12,24 +12,54 @@
 	<script src="../join/p5.speech.js"></script>
     <!-- <script src="../sketch.js"></script> -->
 </head>
-<body class = "bg-gradient-to-r from-blue-100 via-pink-200 to-purple-100">
 
-<div class = "w-1/2 flex flex-col space-y-4 mx-auto pt-8 z-index:1">
-    <p class = "flex-none text-white text-center mt-2 font-bold text-sm md:text-base">
-     .join() 
+<style>
+  @font-face {
+  font-family: EuclidSquare;
+  src: url('../join/fonts/EuclidSquare-Light.ttf')  format('truetype');
+}
+div {
+    font-family: EuclidSquare;
+}
+body {
+    background: #708BB0;
+}
+</style>
+
+
+<!-- <body class = "bg-gradient-to-r from-blue-100 via-pink-200 to-purple-100"> -->
+<body>
+<script>
+    function hideInstr() {
+        var x = document.getElementById("instructions");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+</script>
+<div id = "instructions">
+    <p class = "flex-none mt-12 mx-4 w-full h-full text-white tracking-widest text-center mt-2 text-base md:text-lg z-index:1">
+     .JOIN()
+     <br><br>
+     1. PLACE YOUR PHONE FACE UP ON THE BLUE BOX
+     <br><br>
+     2. TALK INTO THE MICROPHONES
+     <br><br>
+     2. PICK UP YOUR PHONE
     </p>
 </div>
+<button class = "flex mx-auto" onclick="hideInstr()">
+    .join() 
+</button>
 
-<div class = "md:mx-80 mx-6 md:mt-6 mt-4 flex flex-row z-index:0">
+<div class = "md:mx-80 mx-6 md:mt-6 mt-4 flex flex-row z-index:1">
     <a class = "flex-1" href = "pastWords.html"> <video autoplay muted loop>
         <source src="../join/cloud.mp4" type="video/mp4" />
     </video> </a>
 </div>
-<!-- <div class = "w-1/2 flex flex-col space-y-4 mx-auto z-index:1">
-    <p class = "flex-none text-white text-center mt-2 font-bold text-sm md:text-base">
-     JOIN THE NETWORK
-    </p>
-</div> -->
+
 <div class = "md:mx-32 mx-2 md:space-x-24 space-x-2 md:mt-6 mt-4 flex flex-row z-index:0"> 
     <a class = "flex-1" href = "word.html"> <video autoplay muted loop>
         <source src="../join/vid1.mp4" type="video/mp4" />
@@ -40,22 +70,6 @@
     </video> </a>
 </div>
 
-<!-- <div class = "md:mx-32 mx-2 md:space-x-24 space-x-2 md:mt-6 mt-4 flex flex-row z-index:0"> 
-    <p class = "flex-none text-white text-center mt-2 mb-4 mx-auto font-bold text-sm md:text-base">
-     vid1 / text
-    </p>
-    <p class = "flex-none text-white text-center mt-2 mb-4 mx-auto font-bold text-sm md:text-base">
-     vid2 / synonym
-    </p>
-</div> -->
-
-
-<!-- <div style = "position:absolute">
-    <video width="1000" height="700" autoplay loop>
-        <source src="../clouds.mp4" type="video/mp4" />
-    </video>
-
-</div> -->
 </body>
 
 </html>
