@@ -30,6 +30,14 @@ body {
 <!-- <body class = "bg-gradient-to-r from-blue-100 via-pink-200 to-purple-100"> -->
 <body>
 <script>
+    function showStuff() {
+    var x = document.getElementById("stuff");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+    }
     function hideInstr() {
         var x = document.getElementById("instructions");
         if (x.style.display === "none") {
@@ -60,7 +68,12 @@ body {
     click
 </div>
 </button>
-
+<button class = "flex mx-auto text-white text-lg mt-2" onclick="showStuff()">
+    <div> 
+    clickyshow
+</div>
+</button>
+<div id = "stuff" class = "hidden"> 
 <div class = "md:mx-80 mx-24 md:mt-6 mt-4 flex flex-row z-index:1">
     <a class = "flex-1" href = "pastWords.html"> <video autoplay muted loop>
         <source src="../join/cloud.mp4" type="video/mp4" />
@@ -75,6 +88,7 @@ body {
     <a class = "flex-1" href = "otherWord.html"> <video autoplay muted loop>
         <source src="../join/vid3.mp4" type="video/mp4" />
     </video> </a>
+</div>
 </div>
 
 </body>
