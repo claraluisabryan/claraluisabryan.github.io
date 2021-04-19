@@ -9,7 +9,7 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
     //myRec.interrupt = false;
 
     let serial; // variable to hold an instance of the serialport library
-    let portName = '/dev/tty.usbmodem141401';  // fill in your serial port name here
+    let portName = '/dev/tty.usbmodemFD131';  // fill in your serial port name here
     //let portName = '/dev/tty.usbmodemFD121';  // fill in your serial port name here
     let inData; 
 
