@@ -71,7 +71,7 @@ function draw(){
     total += serialArray[i];
   }
   var avg = total/serialArray.length;
-  if (avg<=20){
+  if (avg<=18){
     within = true;
     phoneDown=true;
     //i=i + 1;
