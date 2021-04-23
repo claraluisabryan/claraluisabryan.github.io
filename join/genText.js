@@ -83,7 +83,7 @@ function draw(){
   }
   var avg = total/serialArray.length;
   //console.log(avg);
-  if (avg<=17){
+  if (avg<=11){
     within = true;
     phoneDown=true;
     grow = speed + grow;
