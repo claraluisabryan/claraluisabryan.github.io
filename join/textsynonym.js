@@ -8,20 +8,16 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
     myRec.interimResults = true;
     //myRec.interrupt = false;
 
-    let serial; // variable to hold an instance of the serialport library
-    let portName = '/dev/tty.usbmodemFD131';  // fill in your serial port name here
-    //let portName = '/dev/tty.usbmodemFA121';
-    let inData; 
 
     function restart(){
         myRec.start();
     }
 
-    let GS;
-    function preload() {
-      GS = loadFont('../join/fonts/EuclidSquare-Light.ttf');
-    //   PRETTY = loadFont('https://use.typekit.net/xvf7vtv.css');
-    }
+    // let GS;
+    // function preload() {
+    //   GS = loadFont('../join/fonts/EuclidSquare-Light.ttf');
+    // //   PRETTY = loadFont('https://use.typekit.net/xvf7vtv.css');
+    // }
 
     var thecol;
     var canvas;
@@ -29,24 +25,13 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
 
 	function setup()
 	{
-        canvas = createCanvas(windowWidth, windowHeight);
-        canvas.position(0,0);
+        canvas = createCanvas(windowWidth*.4, windowHeight*.4);
+        canvas.parent("textsynonym");
         canvas.style('z-index', '-1');
 
 		myRec.onResult = parseResult; // now in the constructor
 		myRec.start(); // start engine
     background(112, 139, 176);
-
-      //serial
-      serial = new p5.SerialPort();       // make a new instance of the serialport library
-      serial.on('list', printList);  // set a callback function for the serialport list event
-      serial.on('connected', serverConnected); // callback for connecting to the server
-      serial.on('open', portOpen);        // callback for the port opening
-      serial.on('data', serialEvent);     // callback for when new data arrives
-      serial.on('error', serialError);    // callback for errors
-      serial.on('close', portClose);      // callback for the port closing
-      serial.list();                      // list the serial ports
-      serial.open(portName);              // open a serial port
 	}
 
 var personCount = 0;
@@ -56,22 +41,10 @@ var done = false;
 var i = 0;
 var phoneDown = false;
 
-var serialArray = new Array(50);
 
 function draw(){
-  if (serialArray.length>30){
-  serialArray.pop()
-  }
-  else{
-  serialArray.unshift(inData);
 
-  }
-  var total = 0;
-  for (var i = 0; i < serialArray.length; i++){
-    total += serialArray[i];
-  }
-  var avg = total/serialArray.length;
-  if (avg<=17){
+  if (mouseIsPressed === true){
     within = true;
     phoneDown=true;
     //i=i + 1;
@@ -94,38 +67,9 @@ function draw(){
   }
 
 
-// get the list of ports:
-function printList(portList) {
-  // portList is an array of serial port names
-  for (var i = 0; i < portList.length; i++) {
-    // Display the list the console:
-    console.log(i + portList[i]);
-  }
-}
-
-function serverConnected() {
-  console.log('connected to server.');
-}
- 
-function portOpen() {
-  console.log('the serial port opened.')
-}
-
-function serialEvent() {
-  inData = Number(serial.read());
-}
- 
-function serialError(err) {
-  console.log('Something went wrong with the serial port. ' + err);
-}
- 
-function portClose() {
-  console.log('The serial port closed.');
-}
-
   //windowresize handling
     function windowResized() {
-        resizeCanvas(windowWidth, windowHeight);
+        resizeCanvas(windowWidth*.4, windowHeight*.4);
         background(112, 139, 176);
       }
 
@@ -319,7 +263,7 @@ let personwords = [];
 
     //transition from video to text... add serial code here
   function fadeOutEffect() {
-    var fadeTarget = document.getElementById("target");
+    var fadeTarget = document.getElementById("synonymHide");
     var fadeEffect = setInterval(function () {
         if (!fadeTarget.style.opacity) {
             fadeTarget.style.opacity = 1;
@@ -333,6 +277,6 @@ let personwords = [];
 }
 
 function fadeInEffect() {
-  var fadeTarget = document.getElementById("target");
+  var fadeTarget = document.getElementById("synonymHide");
   fadeTarget.style.opacity = 1;
 }

@@ -8,22 +8,9 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
     myRec.interimResults = true;
     //myRec.interrupt = false;
 
-    let serial; // variable to hold an instance of the serialport library
-    let portName = '/dev/tty.usbmodemFD131';  // fill in your serial port name here
-    //let portName = '/dev/tty.usbmodemFD121';  // fill in your serial port name here
-    let inData; 
-
     function restart(){
         myRec.start();
     }
-
-
-// let paragraph = ['luisa', 'loves', 'u', 'yes', 'yes', 'pizza', 'one', 'two', 'three', 'yerba', 'is', 'caffene', 'lsdkjfks', 'sk', 
-// 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie',
-// 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie',
-// 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie',
-// 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie', 'yes', 'okay', 'bestie'];
-
 
 let GS;
 function preload() {
@@ -41,16 +28,6 @@ function setup(){
   myRec.onResult = parseResult; // now in the constructor
   myRec.start(); // start engine
 
-  //serial init
-  serial = new p5.SerialPort();       // make a new instance of the serialport library
-  serial.on('list', printList);  // set a callback function for the serialport list event
-  serial.on('connected', serverConnected); // callback for connecting to the server
-  serial.on('open', portOpen);        // callback for the port opening
-  serial.on('data', serialEvent);     // callback for when new data arrives
-  serial.on('error', serialError);    // callback for errors
-  serial.on('close', portClose);      // callback for the port closing
-  serial.list();                      // list the serial ports
-  serial.open(portName);              // open a serial port
   background(112, 139, 176);
 
 }
@@ -69,21 +46,7 @@ var currWord = 0;
 var wordLen = 0;
 
 function draw(){
-  if (serialArray.length>30){
-  serialArray.pop()
-  }
-  else{
-  serialArray.unshift(inData);
-
-  }
-  var total = 0;
-  var h;
-  for (var i = 0; i < serialArray.length; i++){
-    total += serialArray[i];
-  }
-  var avg = total/serialArray.length;
-  //console.log(avg);
-  if (avg<=18){
+  if (keyIsPressed === true){
     within = true;
     phoneDown=true;
     grow = speed + grow;
@@ -190,7 +153,6 @@ function draw(){
   let words =  [];
   var synonym = "";
   var paragraph = [];
-  var paragraphPrev = [];
   var i = 1;
   var writeonscreen = "";
   var doGrow = false;
@@ -269,34 +231,7 @@ function fontDisplay(){
 }
 //reset stream as empty when phone is lifted up and also call a function on stream (saved somewhere else so it dissipates again.)
 
-// get the list of ports:
-function printList(portList) {
-  // portList is an array of serial port names
-  for (var i = 0; i < portList.length; i++) {
-    // Display the list the console:
-    console.log(i + portList[i]);
-  }
-}
 
-function serverConnected() {
-  console.log('connected to server.');
-}
- 
-function portOpen() {
-  console.log('the serial port opened.')
-}
-
-function serialEvent() {
-  inData = Number(serial.read());
-}
- 
-function serialError(err) {
-  console.log('Something went wrong with the serial port. ' + err);
-}
- 
-function portClose() {
-  console.log('The serial port closed.');
-}
 
 //windowresize handling
 function windowResized() {

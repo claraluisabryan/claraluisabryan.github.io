@@ -1,0 +1,96 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://use.typekit.net/xvf7vtv.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>.join()</title>
+    <link href="/join/tailwind.css" rel="stylesheet">
+    <script src="../join/p5.js"></script>
+    <script src="../join/p5.sound.min.js"></script>
+    <script src="../join/p5.serialport.js"></script>
+	<script src="../join/p5.speech.js"></script>
+    <!-- <script src="../sketch.js"></script> -->
+</head>
+
+<style>
+  @font-face {
+  font-family: EuclidSquare;
+  src: url('../join/fonts/EuclidSquare-Light.ttf')  format('truetype');
+}
+div {
+    font-family: EuclidSquare;
+}
+body {
+    background: #708BB0;
+}
+</style>
+
+
+<!-- <body class = "bg-gradient-to-r from-blue-100 via-pink-200 to-purple-100"> -->
+<body>
+<script>
+    function showStuff() {
+    var x = document.getElementById("stuff");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+    }
+    function hideInstr() {
+        var x = document.getElementById("instructions");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+</script>
+<div id = "instructions">
+    <p class = "flex-none mt-12 mx-4 md:mx-44 h-full text-white tracking-widest text-left mt-2 text-l z-index:1">
+     
+     <br><br>
+     1. <br> PLACE YOUR PHONE 
+     FACE UP 
+     ON THE BLUE BOX.
+     <br><br>
+     2. <br> SPEAK
+     INTO THE MICROPHONES. TALK
+     FOR AT LEAST 10 SECONDS.
+     <br><br>
+     3. <br> WHEN YOU’RE DONE TALKING,
+     REMOVE YOUR PHONE.
+    </p>
+</div>
+<button class = "flex mx-auto text-white text-lg mt-2" onclick="hideInstr()">
+    <div> 
+    click
+</div>
+</button>
+<button class = "flex mx-auto text-white text-lg mt-2" onclick="showStuff()">
+    <div> 
+    clickyshow
+</div>
+</button>
+<div id = "stuff" class = "hidden"> 
+<div class = "md:mx-80 mx-24 md:mt-6 mt-4 flex flex-row z-index:1">
+    <a class = "flex-1" href = "pastWords.html"> <video autoplay muted loop>
+        <source src="../join/cloud.mp4" type="video/mp4" />
+    </video> </a>
+</div>
+
+<div class = "md:mx-32 mx-2 md:space-x-24 space-x-2 md:mt-6 mt-4 flex flex-row z-index:0"> 
+    <a class = "flex-1" href = "word.html"> <video autoplay muted loop>
+        <source src="../join/vid1.mp4" type="video/mp4" />
+    </video> </a>
+
+    <a class = "flex-1" href = "otherWord.html"> <video autoplay muted loop>
+        <source src="../join/vid3.mp4" type="video/mp4" />
+    </video> </a>
+</div>
+</div>
+
+</body>
+
+</html>
