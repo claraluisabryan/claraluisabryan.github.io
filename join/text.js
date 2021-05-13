@@ -24,9 +24,9 @@ var myRec = new p5.SpeechRec('en-US', parseResult); // new P5.SpeechRec object
 
 function setup()
 {
-      canvas = createCanvas(windowWidth*.4, windowHeight*.4);
-      canvas.parent("word");
-      canvas.style('z-index', '0');
+  canvas = createCanvas(windowWidth, windowHeight);
+  canvas.position(0,0);
+  canvas.style('z-index', '-1');
 
   myRec.onResult = parseResult; // now in the constructor
   myRec.start(); // start engine
@@ -46,6 +46,7 @@ function draw(){
   if (keyIsPressed === true){
     within = true;
     phoneDown=true;
+    fadeOutEffect();
     //i=i + 1;
   }
   else {
@@ -56,7 +57,7 @@ function draw(){
       i=0;
   }
   if (within && !done){
-    fadeOutEffect();
+    //fadeOutEffect();
     done = true;
     if (phoneDown){
     personCount+=1;
@@ -69,7 +70,7 @@ function draw(){
 
 //windowresize handling
   function windowResized() {
-      resizeCanvas(windowWidth*.4, windowHeight*.4);
+      resizeCanvas(windowWidth, windowHeight);
       background(112, 139, 176);
     }
 
@@ -237,7 +238,7 @@ function parseResult()
 
 //transition from video to text... add serial code here
   function fadeOutEffect() {
-    var fadeTarget = document.getElementById("wordHide");
+    var fadeTarget = document.getElementById("target");
     var fadeEffect = setInterval(function () {
         if (!fadeTarget.style.opacity) {
             fadeTarget.style.opacity = 1;
@@ -251,6 +252,6 @@ function parseResult()
 }
 
 function fadeInEffect() {
-  var fadeTarget = document.getElementById("wordHide");
+  var fadeTarget = document.getElementById("target");
   fadeTarget.style.opacity = 1;
 }

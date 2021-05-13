@@ -12,9 +12,21 @@
 	<script src="../join/p5.speech.js"></script>
     <script src="../join/text.js"></script>
 </head>
+<style>
+    video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* z-index:-1000000000000000000000000000; */
+  }
+
+</style>
 
 <div id = "target">
-    <video class = "w-full" autoplay muted loop>
+    <video autoplay muted loop>
         <source src="../join/vid3.mp4" type="video/mp4" />
     </video> 
 </div>
