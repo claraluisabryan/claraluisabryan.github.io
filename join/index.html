@@ -54,13 +54,33 @@ mx-12 text-text1 text-sm text-center text-white">
     <footer class=" h-20
  justify-items-center flex flex-row 
 space-x-12 md:mx-12 mx-4 text-text1 text-sm text-center tracking-widest ">
-<div class = "flex-1"> <a href = "../join/joinStatement.html">  READ THE ARTIST STEATEMENT </a> </div>
-<div class = "flex-1"> <a href = "../join/joinOnline.html"> VIEW THE ONLIHE EXHIBITION </a> </div>
-<div class = "flex-1"> <a href = "../join/joinOnline.html"> SEE PHOTO AND VIDEO DOCUMENTATION </a> </div> </footer>
+<span class = "flex-1 cursor-pointer" onclick="transitionToPage('../join/joinStatement.html')"> ARTIST STATEMENT</span>
+
+<!-- <div class = "flex-1"> <a href = "../join/joinStatement.html">   ARTIST STEATEMENT </a> </div> -->
+<div class = "flex-1"> <a href = "../join/joinOnline.html">  ONLIHE EXHIBITION </a> </div>
+<div class = "flex-1"> <a href = "../join/documentation.html"> PHOTO AND VIDEO DOCUMENTATION </a> </div> </footer>
 
   </div>
 
+<script>
+  window.transitionToPage = function(href) {
+    document.querySelector('body').style.opacity = 0
+    setTimeout(function() { 
+        window.location.href = href
+    }, 500)
+}
 
+document.addEventListener('DOMContentLoaded', function(event) {
+    document.querySelector('body').style.opacity = 1
+})
+</script>
+
+<style>
+  body { 
+   opacity: 0;
+   transition: opacity 1s;
+}
+</style>
 
 <!-- <body class = "bg-gradient-to-r from-blue-100 via-pink-200 to-purple-100"> -->
 <body>
