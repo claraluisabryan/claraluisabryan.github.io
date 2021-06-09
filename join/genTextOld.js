@@ -180,7 +180,7 @@ function parseResult()
   var relationship = "/synonyms";
   
   xhr.open("GET", url1+word+relationship);
-  xhr.setRequestHeader("x-rapidapi-key", "d55585893cmshacd11762eca23bbp142e09jsna74478ff2108");
+  xhr.setRequestHeader("x-rapidapi-key", "sdfsdfs");
   xhr.setRequestHeader("x-rapidapi-host", "wordsapiv1.p.rapidapi.com");
   
   xhr.send(data);
