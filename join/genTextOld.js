@@ -160,15 +160,42 @@ function draw(){
 function parseResult()
 {     
   const data = null;
+
+  const xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
   
   var mostrecentword = myRec.resultString.split(' ').pop();
 
+  xhr.addEventListener("readystatechange", function () {
+      if (this.readyState === this.DONE) {
+          synonym = JSON.parse(this.responseText).synonyms[0];
+          if (JSON.parse(this.responseText).synonyms.length == 0){
+          synonym = mostrecentword;
+          }
+      }
+  });
+  
+  var url1 = "https://wordsapiv1.p.rapidapi.com/words/";
+  var word = mostrecentword;
+  var relationship = "/synonyms";
+  
+  xhr.open("GET", url1+word+relationship);
+  xhr.setRequestHeader("x-rapidapi-key", "d55585893cmshacd11762eca23bbp142e09jsna74478ff2108");
+  xhr.setRequestHeader("x-rapidapi-host", "wordsapiv1.p.rapidapi.com");
+  
+  xhr.send(data);
 
-  if (words[0]!=mostrecentword){ 
+  if (words[0]!=synonym && words[0]!=mostrecentword){ 
       if (phoneDown){
         doGrow=true;
+        i = oneOrTwo();
+        if (i==1){ 
+        words.unshift(synonym);
+        paragraph.push(synonym); }
+        else {
         words.unshift(mostrecentword);
         paragraph.push(mostrecentword);
+        }
         console.log(paragraph);
 
       }
@@ -186,13 +213,39 @@ function parseResult()
       words.pop()
   }
 }
+ 
+
+let points;
+function fontDisplay(){
+  displayParagraph = paragraph.join(" ").match(/.{1,40}/g);
+  for (i=1; i<=displayParagraph.length; i++){
+      points = GS.textToPoints(displayParagraph[i-1], 0, i*50+height/displayParagraph.length, 50, {
+      sampleFactor: .2,
+      simplifyThreshold: 0
+    });
+    for (let i = 0; i < points.length; i++) {
+      let p = points[i]; 
+      ellipse(p.x, p.y, 1, 1);
+    }
+  }
+}
+//reset stream as empty when phone is lifted up and also call a function on stream (saved somewhere else so it dissipates again.)
+
 
 
 //windowresize handling
 function windowResized() {
-  resizeCanvas(windowWidth/9*2.8, windowWidth/16*2.8);
+  resizeCanvas(windowWidth, windowHeight);
   background(112, 139, 176);
 
+}
+
+function oneOrTwo(){
+  var y = Math.random();
+  if (y < 0.5) {
+    return 0; }
+  else {
+    return 1; }
 }
 
 

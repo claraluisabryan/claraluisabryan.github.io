@@ -43,7 +43,7 @@ var phoneDown = false;
 
 
 function draw(){
-  if (keyIsPressed === true){
+  if (keyIsPressed === true || mouseIsPressed === true){
     within = true;
     phoneDown=true;
     fadeOutEffect();

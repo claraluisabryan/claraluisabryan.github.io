@@ -48,19 +48,20 @@ mx-12 text-text1 text-sm text-center text-white">
 </div> -->
 
 
-<div class="flex flex-col h-screen justify-between text-lg font-bold text-2xl tracking-widest text-white">
+<div class="flex flex-col h-screen justify-between text-lg font-thin tracking-widest text-white">
     <main class="mb-auto my-auto pb-24 text-center">.join()</main>
 
-    <footer class=" h-20
+    <footer class="h-20
  justify-items-center flex flex-row 
-space-x-12 md:mx-12 mx-4 text-text1 text-sm text-center tracking-widest ">
+md:space-x-12 space-x-2 md:mx-12 mx-2 text-text1 md:text-sm text-xs font-thin text-center tracking-widest ">
 <span class = "flex-1 cursor-pointer" onclick="transitionToPage('../join/joinStatement.html')"> ARTIST STATEMENT</span>
 
 <!-- <div class = "flex-1"> <a href = "../join/joinStatement.html">   ARTIST STEATEMENT </a> </div> -->
-<div class = "flex-1"> <a href = "../join/joinOnline.html">  ONLIHE EXHIBITION </a> </div>
-<div class = "flex-1"> <a href = "../join/documentation.html"> PHOTO AND VIDEO DOCUMENTATION </a> </div> </footer>
+<span class = "flex-1 cursor-pointer" onclick="transitionToPage('../join/joinOnline1.html')"> ONLINE EXHIBITION </span>
+<span class = "flex-1 cursor-pointer" onclick="transitionToPage('../join/documentation.html')"> PHOTO AND VIDEO DOCUMENTATION </span>
 
   </div>
+  
 
 <script>
   window.transitionToPage = function(href) {

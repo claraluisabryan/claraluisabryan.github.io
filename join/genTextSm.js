@@ -20,9 +20,8 @@ function preload() {
 var canvas;
 function setup(){
   //canvas init
-  canvas = createCanvas(windowWidth, windowHeight);
-  canvas.position(0,0);
-  canvas.style('z-index', '-1');
+  canvas = createCanvas(windowWidth/9*2.8, windowWidth/16*2.8);
+  canvas.parent("pastWords");
 
   //voice rec init
   myRec.onResult = parseResult; // now in the constructor
@@ -87,22 +86,22 @@ function draw(){
           wordLen +=1;
         }
         if (wordLen <= 5){
-          textSize(200);
+          textSize(40);
         }
         else if (wordLen > 5 && wordLen <=10){
-          textSize(180);
+          textSize(35);
         }
         else if (wordLen > 10 && wordLen <=15){
-          textSize(140);
+          textSize(30);
         }
         else if (wordLen > 15 && wordLen <=20){
-          textSize(120);
+          textSize(25);
         }
         else if (wordLen > 20 && wordLen <=25){
-          textSize(95);
+          textSize(20);
         }
         else if (wordLen > 25 && wordLen <=30){
-          textSize(75);
+          textSize(15);
         }
       text(paragraph[currWord].toUpperCase(), width/2, height/3); 
       wordLen = 0;
@@ -111,22 +110,22 @@ function draw(){
           wordLen +=1;
         }
         if (wordLen <= 5){
-          textSize(200);
+          textSize(40);
         }
         else if (wordLen > 5 && wordLen <=10){
-          textSize(180);
+          textSize(35);
         }
         else if (wordLen > 10 && wordLen <=15){
-          textSize(140);
+          textSize(30);
         }
         else if (wordLen > 15 && wordLen <=20){
-          textSize(120);
+          textSize(25);
         }
         else if (wordLen > 20 && wordLen <=25){
-          textSize(95);
+          textSize(20);
         }
         else if (wordLen > 25 && wordLen <=30){
-          textSize(75);
+          textSize(15);
         }
       text(paragraph[currWord+1].toUpperCase(), width/2, 2*height/3); 
       wordLen = 0;

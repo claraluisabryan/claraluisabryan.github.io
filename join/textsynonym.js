@@ -106,7 +106,7 @@ let personwords = [];
         var relationship = "/synonyms";
         
         xhr.open("GET", url1+word+relationship);
-        xhr.setRequestHeader("x-rapidapi-key", "d55585893cmshacd11762eca23bbp142e09jsna74478ff2108");
+        xhr.setRequestHeader("x-rapidapi-key", "52f1a5186amshecce29a56fb039dp1b34c4jsn157612765481");
         xhr.setRequestHeader("x-rapidapi-host", "wordsapiv1.p.rapidapi.com");
         
         xhr.send(data);
