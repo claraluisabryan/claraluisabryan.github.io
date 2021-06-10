@@ -23,10 +23,27 @@
   left: 0;
   /* z-index:-1000000000000000000000000000; */
   }
+  @font-face {
+  font-family: EuclidSquare;
+  src: url('../join/fonts/EuclidSquare-Light.ttf')  format('truetype');
+}
+  h1{
+      z-index:1000;
+      font-family: EuclidSquare;
+
+  }
 
 </style>
 <div id = "target">
-    <video class = "w-full" autoplay muted loop>
+
+    <div class = "flex flex-row mt-8 text-black py-4 tracking-wider font-thin text-xs text-white"> 
+    
+        <h1 class = "flex-1 absolute bottom-6 left-1/2 transform -translate-x-1/2 text-center">
+            This portion of the software is not yet available online.
+        </h1>
+    </div>
+
+    <video class = "w-full z-20" autoplay muted loop>
         <source src="../join/vid1.mp4" type="video/mp4" />
     </video> 
 </div>
