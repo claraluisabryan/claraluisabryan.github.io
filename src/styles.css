@@ -1,9 +1,0 @@
-
-@font-face {
-  font-family: 'Gill Sans';
-  src: local('Gill Sans'), url(./fonts/Gill Sans.otf) format('otf');
-}
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
