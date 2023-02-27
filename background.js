@@ -37,7 +37,7 @@ rotateZ(theta * mouseX * 0.001);
     theta += 0.01;
     $(intro_text).text("press anywhere, come in");
     $(intro_background).delay(200).fadeOut(2500);
-    setTimeout(function(){ window.location.href= 'landing_page.html';}, 2500);
+    setTimeout(function(){ window.location.href= 'landing_page.html';}, 2000);
   }
 }
 
