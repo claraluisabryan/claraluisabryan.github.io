@@ -76,7 +76,7 @@ function scatter(){
     // background(new_shuffle_colors[0]);
     // fill(new_shuffle_colors[1]);
     //fill("#FF4FDC");
-    fill("#dddcbd")
+    fill("#a0232b")
     textSize(40);
     // console.log(1);
     background("#384053");
