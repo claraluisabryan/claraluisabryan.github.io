@@ -45,7 +45,9 @@ function setup()
   text('for a long time.', width/2, height/2+100);
   if (windowWidth<=800){
     textFont("Helvetica", windowWidth/40);
-    text('The instagram browser does not support this feature.', width/2, height/2+150);
+    text('Some mobile devices do not support this feature.', width/2, height/2+150);
+    text('Try again on a laptop!', width/2, height/2+200);
+
   }
   textFont(venus_font, windowWidth/30);
 }
