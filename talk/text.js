@@ -46,7 +46,7 @@ function setup()
   if (windowWidth<=800){
     textFont("Helvetica", windowWidth/40);
     text('Some mobile devices do not support this feature.', width/2, height/2+150);
-    text('Try again on a laptop!', width/2, height/2+200);
+    text("If it doesn't work here, try again on a laptop/desktop!", width/2, height/2+200);
 
   }
   textFont(venus_font, windowWidth/30);
