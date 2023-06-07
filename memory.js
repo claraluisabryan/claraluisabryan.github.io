@@ -46,6 +46,7 @@ function setup() {
   }
   
   function draw() {
+    
     background(0);
     //print(textList.length);
     

@@ -19,6 +19,7 @@
     transform: scale(1.2);
 }
 
+
 @font-face {
     font-family: aktura;
     src: url(./fonts/Aktura-Regular.ttf);
@@ -483,14 +484,46 @@ font-size: 20px;
 
 
 #video_page {
-    /* background: url(./picsandvids/cd_bg.png);
-    background-attachment: fixed; */
+    background: url(./picsandvids/cd_bg.png);
+    background-attachment: fixed;
     color:black;
-    font-family: imogen;
-    font-weight: bold;
-    
   }
 
+#video_headings{
+    /* font-family: imogen; */
+    font-family: crystal;
+    font-weight: bold;
+    font-size: 50px;
+    color:black;
+    outline-style: ridge;
+    background-color:white;
+    width:max-content;
+    opacity: 70%;
+}
+
+
+#video_text{
+    /* font-family: imogen; */
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color:black;
+}
+#video_text_sub{
+    /* font-family: imogen; */
+    font-family: Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color:black;
+}
+
+#video_text_sub_2{
+    /* font-family: imogen; */
+    font-family: Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: 13px;
+    color:black;
+}
 
 /* MUSIC */
 
@@ -500,15 +533,74 @@ font-size: 20px;
     background-attachment: fixed;
     background-size: 1000%;
     background-position: center;
-    margin-inline: 100px;
+    margin-inline: 50px;
     color:black;
     background-color: black;
     font-family: crystal;
-    font-size: 50px;
-    font-weight: bold;
-    
+    /* font-size: 50px; */
+    /* font-weight: bold; */
   }
 
+
+#title_lg{
+font-size: 50px;
+font-weight: bold;
+}
+
+
+#title_sm{
+    font-size: 30px;
+    font-weight: bold;
+}
+    
+#blogk_out{
+    animation: 4s ease-in-out 0s infinite grow;
+
+}
+
+.jumplink_streaming{
+    background:black;
+    color: white;
+    text-decoration: none;
+    padding: 4px;
+    display:inline-block;
+}
+
+.jumplink_streaming:hover{
+    background:green;
+    color:black;
+    text-decoration: none;
+}
+
+.lot_streaming{
+    background:black;
+    color: white;
+    text-decoration: none;
+    padding: 4px;
+    display:inline-block;
+}
+
+.lot_streaming:hover{
+    background:pink;
+    color:black;
+    text-decoration: none;
+}
+
+
+
+/* FOREVER */
+#FOREVER_page {
+    background: url(./picsandvids/FOREVER_Background.png);
+    background-attachment: fixed;
+    background-size: 100%;
+    background-position: center;
+    margin-inline: 50px;
+    color:black;
+    background-color: black;
+    font-family: crystal;
+    /* font-size: 50px; */
+    /* font-weight: bold; */
+  }
   /* MERCH */
 
 
@@ -519,5 +611,4 @@ font-size: 20px;
     text-shadow: 2px 3px 4px white;    
     font-size: 30px;
     font-weight: bold;
-    
   }
