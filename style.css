@@ -52,6 +52,11 @@ src: url(./fonts/LeakorLeach.ttf);
 }
 
 @font-face {
+    font-family: hellplague;
+    src: url(./fonts/hellplague.otf);
+}
+
+@font-face {
     font-family: mscurvy;
     src: url(./fonts/mscurvy.otf);
 }
@@ -491,13 +496,13 @@ font-size: 20px;
 
 #video_headings{
     /* font-family: imogen; */
-    font-family: crystal;
+    font-family: hellplague;
     font-weight: bold;
     font-size: 50px;
     color:black;
     outline-style: ridge;
     background-color:white;
-    width:max-content;
+    /* width:max-content; */
     opacity: 70%;
 }
 
