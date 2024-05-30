@@ -250,7 +250,7 @@ src: url(./fonts/LeakorLeach.ttf);
 
 #meow{
     position:absolute;
-    top:330px;
+    top:130px;
     left:20px;
     animation: 3s ease-in-out 0s infinite hide;
     animation-delay: 100ms;
@@ -261,7 +261,7 @@ src: url(./fonts/LeakorLeach.ttf);
 
 #memory{
     position:absolute;
-    top:490px;
+    top:290px;
     left:20px;
     animation: 3s ease-in-out 0s infinite hide;
     animation-delay: 200ms;
@@ -294,7 +294,7 @@ src: url(./fonts/LeakorLeach.ttf);
 
 #meow_right{
     position:absolute;
-    top:330px;
+    top:130px;
     right:20px;
     animation: 3s ease-in-out 0s infinite hide;
     animation-delay: 100ms;
@@ -305,7 +305,7 @@ src: url(./fonts/LeakorLeach.ttf);
 
 #memory_right{
     position:absolute;
-    top:490px;
+    top:290px;
     right:20px;
     animation: 3s ease-in-out 0s infinite hide;
     animation-delay: 200ms;

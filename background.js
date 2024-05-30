@@ -56,7 +56,7 @@ function mousePressed() {
 
     // (｡◕‿◕｡)
   if (clicks==3){ 
-    $(intro_text).text("come in.......");
+    $(intro_text).text("enter");
     $(intro_background).delay(200).fadeOut(2500);
     setTimeout(function(){ window.location.href= 'index.html';}, 2500);
 
